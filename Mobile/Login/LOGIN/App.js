@@ -1,46 +1,61 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, TextInput, View, Image, TouchableOpacity, Alert } from 'react-native';
+import AppLoading from 'expo-app-loading';
+import {
+  useFonts,
+  Roboto_900Black,
+} from '@expo-google-fonts/dev';
+
 
 export default function App() {
   const onPress = () => {
     alert("voce esta logado")
   }
 
+  let [fontsLoaded] = useFonts({
+    Roboto_900Black,
+  });
+
   const link = () => {
-    alert("Estamos Tratando essa parte do Aplicativo")
+    alert("Tente Lembrar por favor")
   }
-  return (
-    <View style={styles.container}>
 
-      <Image
-        style={styles.image}
-        source={require("./src/assets/Logo.png")}
-      />
+  if (!fontsLoaded) {
+    return <AppLoading />;
+  } else {
+    return (
+      <View style={styles.container}>
 
-      <Text style={styles.email}>Email</Text>
+        <Image
+          style={styles.image}
+          source={require("./src/assets/Logo.png")}
+        />
 
-      <TextInput
-        style={styles.inputEmail}
-        placeholder='Email'
-      />
+        <Text style={styles.email}>Email</Text>
 
-      <Text style={styles.senha}>Senha</Text>
+        <TextInput
+          style={styles.inputEmail}
+          placeholder='Email'
+        />
 
-      <TextInput
-        style={styles.inputSenha}
-        placeholder='Senha'
-      />
+        <Text style={styles.senha}>Senha</Text>
 
-    
-      { <TouchableOpacity style={styles.button} onPress={onPress}>
-        <Text>ENTRAR</Text>  
-      </TouchableOpacity> }
+        <TextInput
+          style={styles.inputSenha}
+          placeholder='Senha'
+        />
 
-      <Text style={styles.text} onPress={link}>Esqueci minha Senha</Text>
 
-      <StatusBar style="auto" />
-    </View>
-  );
+        {<TouchableOpacity style={styles.button} onPress={onPress}>
+          <Text>ENTRAR</Text>
+        </TouchableOpacity>}
+
+        <Text style={styles.text} onPress={link}>Esqueci minha Senha</Text>
+
+        <StatusBar style="auto" />
+      </View>
+    )
+  }
 }
 
 const styles = StyleSheet.create({
@@ -49,74 +64,78 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
     alignItems: 'start',
     justifyContent: 'center',
-    gap:8,
-    paddingLeft: 50
+    gap: 8,
+    paddingLeft: 50,
+    paddingRight: 50,
+    
 
   },
 
-  image:{
-      marginBottom: 80
+  image: {
+    marginBottom: 80,
+    marginRight:50,
   },
 
   email: {
     fontSize: 15,
-    paddingLeft:20
+    paddingLeft: 20
   },
 
   inputEmail: {
     borderWidth: 2,
-    borderRadius:8,
-    borderColor:'#3A66C0',
+    borderRadius: 8,
+    borderColor: '#3A66C0',
 
     marginTop: 10,
     // color: 'white',
     width: 280,
-    height:49,
-    paddingLeft:20,
-   
+    height: 49,
+    paddingLeft: 20,
+
   },
 
   senha: {
     fontSize: 15,
     marginTop: 15,
     // color: 'white',
-    paddingLeft:20
+    paddingLeft: 20
   },
 
   inputSenha: {
     borderWidth: 2,
-    borderColor:'#3A66C0',
-    borderRadius:8,
+    borderColor: '#3A66C0',
+    borderRadius: 8,
 
     marginTop: 10,
     // color: 'white',
     width: 280,
-    height:49,
-    paddingLeft:20,
-  
-    
+    height: 49,
+    paddingLeft: 20,
+
+
   },
 
   button: {
     borderWidth: 2,
-    borderRadius:8,
-    borderColor:'#3A66C0',
+    borderRadius: 8,
+    borderColor: '#3A66C0',
 
     width: 140,
     height: 57,
 
     marginTop: 20,
-    marginLeft:70,
-    
-    alignItems:'center',
-    justifyContent: 'center', 
+    marginLeft: 70,
+
+    alignItems: 'center',
+    justifyContent: 'center',
   },
 
-  text:{
-    fontSize:15,
+  text: {
+    fontSize: 15,
     color: 'blue',
-   paddingLeft: 65,
-   paddingTop: 20,
+    paddingLeft: 65,
+    paddingTop: 20,
+    fontFamily: 'Roboto_900Black',
 
   }
 });
