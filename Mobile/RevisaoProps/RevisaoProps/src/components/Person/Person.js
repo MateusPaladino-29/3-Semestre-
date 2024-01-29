@@ -21,15 +21,15 @@ const styles = StyleSheet.create({
 
     name:{
         color: 'white',
-        fontSize:20
+        fontSize:20,
+        fontFamily:' Poppins_300Light'
     },
 
     age:{
         color:'blue',
-        fontSize: 20
+        fontSize: 20,
+        fontFamily: 'SingleDay_400Regular'
     }
-
-
 })
 
 export default Person;
