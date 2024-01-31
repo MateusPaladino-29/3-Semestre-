@@ -1,6 +1,12 @@
 import { StatusBar } from 'expo-status-bar';
 import { useEffect, useState } from 'react';
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { Container } from './src/components/Container/Container';
+import { TitleDecrement, TitleIncrement,  } from './src/components/Title/TitleIncrement';
+import { BtnDecrement, BtnIncrement,  } from './src/components/Button/BtnDecrement';
+import { Title } from './src/components/Title/TitleCount';
+
+
+
 
 
 export default function App() {
@@ -21,54 +27,54 @@ export default function App() {
 
 
   return (
-    <View style={styles.container}>
+    <Container>
 
-      <TouchableOpacity style={styles.incremento} onPress={increment}>
-        <Text style={{color:'white'}}>Incrementar +</Text>
-      </TouchableOpacity>
+      <BtnIncrement onPress={increment}>
+        <TitleIncrement>Incrementar +</TitleIncrement>
+      </BtnIncrement>
 
-      <Text style={{fontSize: 15}}>Contador: {count}</Text>
+      <Title>Contador: {count}</Title>
 
 
-      <TouchableOpacity style={styles.decremento} onPress={decrement}>
-        <Text style={{color:'white'}}>Decrementar -</Text>
-      </TouchableOpacity>
+      <BtnDecrement onPress={decrement}>
+        <TitleDecrement>Decrementar -</TitleDecrement>
+      </ BtnDecrement>
 
 
       <StatusBar style="auto" />
-    </View>
+    </Container>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    flexDirection: 'row',
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-    gap: 20
-  },
+// const styles = StyleSheet.create({
+//   // container: {
+//   //   flex: 1,
+//   //   flexDirection: 'row',
+//   //   backgroundColor: '#fff',
+//   //   alignItems: 'center',
+//   //   justifyContent: 'center',
+//   //   gap: 20
+//   // },
 
-  decremento: {
-    borderWidth: 3,
-    padding: 5,
-    backgroundColor: '#8B008B',
-    borderRadius: 6,
-
-
-
-    alignItems:'center',
-    justifyContent:'center'
-  },
-  incremento: {
-    borderWidth: 3,
-    padding: 5,
-    backgroundColor: '#BA55D3',
-    borderRadius: 6,
+//   // decremento: {
+//   //   borderWidth: 3,
+//   //   padding: 5,
+//   //   backgroundColor: '#8B008B',
+//   //   borderRadius: 6,
 
 
-    alignItems:'center',
-    justifyContent:'center'
-  }
-});
+
+//   //   alignItems:'center',
+//   //   justifyContent:'center'
+//   // },
+//   // incremento: {
+//   //   borderWidth: 3,
+//   //   padding: 5,
+//   //   backgroundColor: '#BA55D3',
+//   //   borderRadius: 6,
+
+
+//   //   alignItems:'center',
+//   //   justifyContent:'center'
+//   // }
+// });
