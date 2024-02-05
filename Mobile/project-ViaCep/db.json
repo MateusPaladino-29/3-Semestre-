@@ -1,0 +1,21 @@
+{
+    "cep": [
+        {
+            "id": "08675238",
+            "logradouro": "Rua: Baruel",
+            "bairro": "Jd Paulista",
+            "Cidade": "Suzano",
+            "Estado": "São Paulo",
+            "uf": "SP"
+        },
+
+        {
+            "id": "03375000",
+            "logradouro": "Rua: Hemisferio",
+            "bairro": "Vila Formosa",
+            "Cidade": "Sao Paulo",
+            "Estado": "São Paulo",
+            "uf": "SP"
+        }
+    ]
+}
