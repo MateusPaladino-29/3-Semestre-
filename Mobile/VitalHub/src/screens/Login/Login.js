@@ -1,37 +1,40 @@
-import { Button, Text } from "react-native"
+import { Text } from "react-native"
 import { Container } from "../../Components/Container/stylesContainer"
-import { Logo } from "../../Components/Logo/StylesLogo"
-import { Title } from "../../Components/Title/StylesTitle"
+import { Logo, LogoGoogle } from "../../Components/Logo/StylesLogo"
+import { ButtonTitle, ButtonTitleGoogle, Title } from "../../Components/Title/StylesTitle"
 import { Input } from "../../Components/Input/IndexInput"
-// import { LinkMedium } from "../../Components/Link/StylesLink"
+import { ContentAccount, LinkMedium } from "../../Components/Link/IndexLink"
+import { Botao, ButtonGoogle } from "../../Components/Button/StylesButton"
+import { AntDesign } from '@expo/vector-icons';
 
 
 export const Login = () => {
-    return(
-    <Container>
-        <Logo source={require("../../assets/VitalHub_Logo1.png")}/>
+    return (
+        <Container>
+            <Logo source={require("../../assets/VitalHub_Logo1.png")} />
 
-         <Title>Entrar ou Criar conta</Title>
+            <Title>Entrar ou Criar conta</Title>
 
-         <Input placeholder={"Usuário ou E-mail"} placeholderTextColor={"#34898F"}/>
+            <Input placeholder={"Usuário ou E-mail"} placeholderTextColor={"#34898F"} />
 
-         <Input placeholder={"Senha"}  placeholderTextColor={"#34898F"}/>
+            <Input placeholder={"Senha"} placeholderTextColor={"#34898F"} secureTextEntry={true} />
 
-          {/* <LinkMedium>Esqueceu sua senha?</LinkMedium>  */}
+            <LinkMedium url={'https://i0.wp.com/www.brasilferroviario.com.br/wp-content/uploads/2020/11/MANUTENCAO.jpg?fit=878%2C536&ssl=1'} />
 
-        {/* <Button>
-            <ButtonTitle>Entrar</ButtonTitle>
-        </Button>
+            <Botao>
+                <ButtonTitle>Entrar</ButtonTitle>
+            </Botao>
 
-        <ButtonGoogle>
-            <ButtonTitleGoogle>Entrar com o Google</ButtonTitleGoogle>
-        </ButtonGoogle>
+            <ButtonGoogle >
+            <AntDesign name="google" size={24} color="#496BBA"/>
+                <ButtonTitleGoogle >Entrar com o Google</ButtonTitleGoogle>
+            </ButtonGoogle>
 
-        <ContentAccount>
-            <TextAccount>Nao tem conta? crie uma conta agora</TextAccount>
-        </ContentAccount>   */}
-  
+            <ContentAccount url={'https://i0.wp.com/www.brasilferroviario.com.br/wp-content/uploads/2020/11/MANUTENCAO.jpg?fit=878%2C536&ssl=1'} />
 
-    </Container>
+
+
+
+        </Container>
     )
 }

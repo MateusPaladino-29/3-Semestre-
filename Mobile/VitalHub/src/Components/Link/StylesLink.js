@@ -1,7 +1,12 @@
 import styled from "styled-components";
 
-export const LinkMedium = styled.link`
-font-family: MontserratAlternates_500Medium;
-font-size: 14px;
-color: #8C8A97;
+
+
+export const TextLinkMedium = styled.Text`
+    text-decoration: underline;
+    color: #8C8A97;
+    font-size: 14px;
+    font-family: 'MontserratAlternates_500Medium';
+    margin-top: 10px;
+   margin-right: 150px;
 `

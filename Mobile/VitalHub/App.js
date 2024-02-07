@@ -9,11 +9,13 @@ import {
   Quicksand_600SemiBold,
   Quicksand_500Medium,
   MontserratAlternates_600SemiBold,
-  MontserratAlternates_500Medium
+  MontserratAlternates_500Medium,
+  MontserratAlternates_700Bold
 
 } from '@expo-google-fonts/dev';
 import { navegacao } from './src/screens/Navegacao/Navegacao';
 import { Login,} from './src/screens/Login/Login';
+import { Senha } from './src/screens/Senha/Senha';
 
 
 const Stack = createNativeStackNavigator()
@@ -25,6 +27,7 @@ export default function App() {
     Quicksand_500Medium,
     MontserratAlternates_600SemiBold,
     MontserratAlternates_500Medium,
+    MontserratAlternates_700Bold 
     
 
     
@@ -56,6 +59,18 @@ export default function App() {
             name="Login"
             component={Login}
             options={{title: "Login" }}
+          />
+
+          <Stack.Screen
+            name="Senha"
+            component={Senha}
+            options={{title: "Senha" }}
+          />
+
+          <Stack.Screen
+            name="Verificacao"
+            component={verificacao}
+            options={{title: "verificacao" }}
           />
         </Stack.Navigator>
       </NavigationContainer>
