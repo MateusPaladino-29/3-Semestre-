@@ -1,4 +1,4 @@
-import { InputBox } from "./StylesInput"
+import { CreateInput, InputBox, InputNumeric, InputTextProfile, RedefinirInput } from "./StylesInput"
 
 export const Input = ({
     placeholder,
@@ -8,6 +8,7 @@ export const Input = ({
     placeholderTextColor,
     secureTextEntry = false 
   
+    
     
 }) => {
     return(
@@ -21,6 +22,106 @@ export const Input = ({
             secureTextEntry={secureTextEntry}
             
         />
+
         
+    )
+}
+
+export const BoxNumeric = ({
+    placeholder,
+    keyType,
+    fieldValue,
+    onChangeText,
+    placeholderTextColor,
+   
+    
+}) => {
+    return(
+        
+        < InputNumeric
+
+            placeholder={placeholder}         
+            keyboardType={keyType}
+            value={fieldValue}
+            onChangeText={onChangeText}
+            placeholderTextColor={placeholderTextColor}
+            
+        />
+
+        
+    )
+}
+
+export const InputRedefinir = ({
+    placeholder,
+    keyType,
+    fieldValue,
+    onChangeText,
+    placeholderTextColor,
+  
+    
+}) => {
+    return(
+        
+        <RedefinirInput
+            placeholder={placeholder}         
+            keyboardType={keyType}
+            value={fieldValue}
+            onChangeText={onChangeText}
+            placeholderTextColor={placeholderTextColor}
+            
+            
+        />
+
+        
+    )
+}
+
+export const InputCreate = ({
+    placeholder,
+    keyType,
+    fieldValue,
+    onChangeText,
+    placeholderTextColor,
+  
+    
+}) => {
+    return(
+        
+        <CreateInput
+            placeholder={placeholder}         
+            keyboardType={keyType}
+            value={fieldValue}
+            onChangeText={onChangeText}
+            placeholderTextColor={placeholderTextColor}
+            
+            
+        />
+
+        
+    )
+}
+
+export const InputProfile = ({
+    editable, 
+    placeholder, 
+    fieldValue, 
+    onChangeText, 
+    keyType,
+    maxLength,
+    placeholderTextColor,
+    // secureTextEntry = false,
+}) => {
+    return (
+        <InputTextProfile
+            placeholder={placeholder}
+            editable={editable}
+            keyboardType={keyType}
+            value={fieldValue}
+            maxLength={maxLength}
+            onChangeText={onChangeText}
+            placeholderTextColor={placeholderTextColor}
+            // secureTextEntry={secureTextEntry}
+        />
     )
 }

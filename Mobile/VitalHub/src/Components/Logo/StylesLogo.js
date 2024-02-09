@@ -10,3 +10,7 @@ width: 30px;
 height: 30px;
 margin-right: 330px;
 `
+
+export const Close = styled(Seta)`
+
+`

@@ -9,3 +9,8 @@ text-align: center;
 margin-top: 15px;
 
 `
+
+export const DescricaoEmail = styled(Descricao)`
+color: #496BBA;
+margin-top: 20px;
+`

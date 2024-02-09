@@ -1,5 +1,5 @@
 import { Linking } from "react-native"
-import { TextLinkMedium } from "./StylesLink"
+import { TextCancel, TextEmail, TextLinkMedium } from "./StylesLink"
 import { LinkAccount, TextAccount } from "../Title/StylesTitle"
 
 
@@ -19,6 +19,22 @@ export const ContentAccount = ({
 }) => {
     return(
         <TextAccount>Nao tem uma conta?<LinkAccount onPress={() => {Linking.openURL(`${url}`)}}>Crie uma conta agora</LinkAccount></TextAccount>
+    )
+}
+
+export const LinkCodigo = ({
+    url
+}) => {
+    return(
+        <TextEmail onPress={() => {Linking.openURL(`${url}`)}}>Reenviar Código</TextEmail>
+    )
+}
+
+export const Cancelar = ({
+    url
+}) => {
+    return(
+        <TextCancel onPress={() => {Linking.openURL(`${url}`)}}>Cancelar</TextCancel>
     )
 }
 

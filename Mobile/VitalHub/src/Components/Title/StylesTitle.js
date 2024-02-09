@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
 export const Title = styled.Text`
-font-family:  Quicksand_600SemiBold;
-font-size: 18;
+font-family:   MontserratAlternates_600SemiBold;
+font-size: 20;
 text-align: center;
 color: #33303E;
  
@@ -37,5 +37,7 @@ export const LinkAccount = styled(TextAccount)`
 color: #4D659D;
 text-decoration: underline;
 `
+
+
 
 

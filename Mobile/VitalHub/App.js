@@ -16,6 +16,10 @@ import {
 import { navegacao } from './src/screens/Navegacao/Navegacao';
 import { Login,} from './src/screens/Login/Login';
 import { Senha } from './src/screens/Senha/Senha';
+import { verificacao } from './src/screens/Verificacao/Verificacao';
+import { NovaSenha } from './src/screens/NovaSenha/NovaSenha';
+import { RedefinirSenha } from './src/screens/RedefinirSenha/RedefinirSenha';
+import { Perfil } from './src/screens/Perfil/PerfilPaciente';
 
 
 const Stack = createNativeStackNavigator()
@@ -71,6 +75,24 @@ export default function App() {
             name="Verificacao"
             component={verificacao}
             options={{title: "verificacao" }}
+          />
+
+          <Stack.Screen
+            name="RedefinirSenha"
+            component={RedefinirSenha}
+            options={{title: "RedefinirSenha" }}
+          />
+
+          <Stack.Screen
+            name="NovaSenha"
+            component={NovaSenha}
+            options={{title: "NovaSenha" }}
+          />
+
+          <Stack.Screen
+            name="Perfil"
+            component={Perfil}
+            options={{title: "Perfil" }}
           />
         </Stack.Navigator>
       </NavigationContainer>

@@ -2,7 +2,7 @@ import { Botao } from "../../Components/Button/StylesButton"
 import { Container } from "../../Components/Container/stylesContainer"
 import { Input } from "../../Components/Input/IndexInput"
 import { Logo, Seta } from "../../Components/Logo/StylesLogo"
-import { Descricao } from "../../Components/Text/StylesText"
+import { Descricao } from "../../Components/Texts/StylesText"
 import { ButtonTitle, Title } from "../../Components/Title/StylesTitle"
 
 
