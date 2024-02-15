@@ -23,4 +23,8 @@ gap:27px;
 align-items: center;
 `
 
+export const BotaoProfile = styled(Botao)`
+margin-bottom:50px ;
+`
+
 

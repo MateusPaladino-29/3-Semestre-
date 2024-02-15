@@ -16,3 +16,11 @@ margin-top: 20px;
 export const ScrollView = styled.ScrollView`
 background-color: #EDEDED;
 `
+
+export const ContainerInput = styled.SafeAreaView`
+flex-direction: row;
+justify-content: space-evenly;
+
+
+
+`

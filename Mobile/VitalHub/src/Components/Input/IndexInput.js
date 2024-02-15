@@ -125,3 +125,26 @@ export const InputProfile = ({
         />
     )
 }
+export const InputProntuario = ({
+    editable, 
+    placeholder, 
+    fieldValue, 
+    onChangeText, 
+    keyType,
+    maxLength,
+    placeholderTextColor,
+    // secureTextEntry = false,
+}) => {
+    return (
+        <InputTextProntuario
+            placeholder={placeholder}
+            editable={editable}
+            keyboardType={keyType}
+            value={fieldValue}
+            maxLength={maxLength}
+            onChangeText={onChangeText}
+            placeholderTextColor={placeholderTextColor}
+            // secureTextEntry={secureTextEntry}
+        />
+    )
+}

@@ -12,5 +12,9 @@ margin-right: 330px;
 `
 
 export const Close = styled(Seta)`
+`
 
+export const LogoPaciente = styled(Logo)`
+width: 360px;
+height: 280px;
 `

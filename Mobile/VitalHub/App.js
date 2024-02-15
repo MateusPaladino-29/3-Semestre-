@@ -94,6 +94,12 @@ export default function App() {
             component={Perfil}
             options={{title: "Perfil" }}
           />
+
+          <Stack.Screen
+            name="ProntuarioMedico"
+            component={ProntuarioMedico}
+            options={{title: "ProntuarioMedico" }}
+          />
         </Stack.Navigator>
       </NavigationContainer>
 

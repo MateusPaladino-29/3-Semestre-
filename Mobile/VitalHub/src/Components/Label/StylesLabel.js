@@ -5,5 +5,7 @@ export const InputLabel = styled.Text`
     font-family: 'Quicksand_600SemiBold';
     color: #33303E;
     text-align: left;
-    margin-bottom: 10px;
+    width: 90%;
+   
 `
+

@@ -37,6 +37,12 @@ margin-top: 20px;
 export const InputTextProfile = styled(InputBox)`
     border: none;
     background-color: #F5F3F3;
+    width: 90%;
+    margin-top: 0;
+`
+
+export const InputTextProntuario = styled(InputBox)`
+
 `
 
 

@@ -1,9 +1,10 @@
-import { IndexLabel } from "./StylesLabel"
+import { InputLabel } from "./StylesLabel"
+
 
 export const Label = ({textLabel}) => {
     return (
         <>
-            <IndexLabel>{textLabel}</IndexLabel>
+            <InputLabel>{textLabel}</InputLabel>
         </>
     )
 }
