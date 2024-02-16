@@ -2,10 +2,10 @@ import { ScrollView } from "react-native";
 import { Container, ContainerInput, Flex } from "../../Components/Container/stylesContainer";
 import { ButtonTitle, Title } from "../../Components/Title/StylesTitle";
 import { Descricao } from "../../Components/Texts/StylesText";
-import { Logo, LogoPaciente } from "../../Components/Logo/StylesLogo";
+import { LogoPaciente } from "../../Components/Logo/StylesLogo";
 import { BoxInput } from "../../Components/BoxInput/IndexBoxInput";
 import { Botao, BotaoProfile } from "../../Components/Button/StylesButton";
-import styled from "styled-components";
+
 
 export const Perfil = () => {
   return (

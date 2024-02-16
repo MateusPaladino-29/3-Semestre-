@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { InputProfile } from "./IndexInput";
 
 export const InputBox = styled.TextInput`
 width:320; 
@@ -42,8 +43,19 @@ export const InputTextProfile = styled(InputBox)`
 `
 
 export const InputTextProntuario = styled(InputBox)`
-
+border: 2px solid #49B3BA;
+width: 90%;
+height: 120PX;
+margin-top: 10px;
 `
+
+export const InpuTextDiagnostico = styled(InputTextProfile)`
+border: 2px solid #49B3BA;
+background-color: #FAFAFA;
+margin-top: 10px;
+`
+
+
 
 
  

@@ -18,3 +18,15 @@ export const LogoPaciente = styled(Logo)`
 width: 360px;
 height: 280px;
 `
+export const LogoHeader = styled.Image`
+width: 60px;
+height: 60px;
+margin-top: 40px;
+margin-left: 9%;
+`
+
+export const IconBell = styled.Image`
+    width: 23px;
+    height: 26px;
+    align-self: center;
+`

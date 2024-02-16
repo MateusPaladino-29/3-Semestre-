@@ -20,7 +20,10 @@ export const TextEmail = styled.Text`
   
 `
 
+export const TextCancelProntuario = styled(TextEmail)`
+margin-top: 10px;
+margin-bottom: 30px;
+`
 export const TextCancel = styled(TextEmail)`
 
 `
-

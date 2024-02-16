@@ -38,6 +38,28 @@ color: #4D659D;
 text-decoration: underline;
 `
 
+export const WelcomeTitle = styled.Text`
+    margin-right: 24px;
+    font-family: Quicksand_600SemiBold;
+    font-size: 14px;
+    color: #4E4B59;
+`
 
+export const TitleMonth = styled(Title)`
+
+    margin-top: 5%;
+    margin-right: 45%;
+`
+
+export const NameTitle = styled.Text`
+    font-family: MontserratAlternates_600SemiBold;
+    font-size: 16px;
+    color: #FBFBFB;
+`
+
+export const ButtonTitleHome = styled(Title)`
+font-size: 12px;
+color: #FBFBFB
+`
 
 
