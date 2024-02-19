@@ -2,18 +2,18 @@ import styled, { css } from "styled-components";
 
 import { LinearGradient } from 'expo-linear-gradient';
 
-export const Header = styled(LinearGradient).attrs({
+export const Header  = styled(LinearGradient).attrs({
     colors: ['#60BFC5', '#496BBA'],
     start: { x: 0, y: 0 },
     end: { x: 1, y: 0 },
 })`
-    padding-top:25px;
+    padding-top:170px;
     width: 100%;
-    height:35%;
+    height:25%;
     background-color: #FF99CC;
     border-radius: 0px 0px 22px 22px;
-    elevation: 10px; 
-
+    elevation: 7px; 
+ 
     flex-direction: row;
     justify-content: center;
     align-items: center; 

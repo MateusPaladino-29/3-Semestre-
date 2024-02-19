@@ -1,5 +1,3 @@
-BtnListAppointment
-
 import { ButtonTabsStyle, ButtonTextStyle } from "./BtnListAppointmentStyles"
 
 export const BtnListAppointment = ({

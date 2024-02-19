@@ -10,7 +10,8 @@ import {
   Quicksand_500Medium,
   MontserratAlternates_600SemiBold,
   MontserratAlternates_500Medium,
-  MontserratAlternates_700Bold
+  MontserratAlternates_700Bold,
+  Quicksand_400Regular,
 
 } from '@expo-google-fonts/dev';
 import { navegacao } from './src/screens/Navegacao/Navegacao';
@@ -21,7 +22,8 @@ import { NovaSenha } from './src/screens/NovaSenha/NovaSenha';
 import { RedefinirSenha } from './src/screens/RedefinirSenha/RedefinirSenha';
 import { Perfil } from './src/screens/Perfil/PerfilPaciente';
 import { ProntuarioMedico } from './src/screens/ProntuarioMedico/ProntuarioMedico';
-import { ConsultaMedico } from './src/screens/ConsultaMedico/ConsultaMedico';
+import { ConsultaMedico } from './src/screens/ConsultasMedico/ConsultaMedico';
+
 
 
 const Stack = createNativeStackNavigator()
@@ -33,7 +35,8 @@ export default function App() {
     Quicksand_500Medium,
     MontserratAlternates_600SemiBold,
     MontserratAlternates_500Medium,
-    MontserratAlternates_700Bold 
+    MontserratAlternates_700Bold,
+    Quicksand_400Regular,
     
 
     
