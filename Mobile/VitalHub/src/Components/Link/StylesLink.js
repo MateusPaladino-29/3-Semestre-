@@ -25,5 +25,12 @@ margin-top: 10px;
 margin-bottom: 30px;
 `
 export const TextCancel = styled(TextEmail)`
+`
 
+export const TextCancelCard = styled(TextLinkMedium)`
+font-size: 12px;
+color: #C81D25;
+text-decoration: none;
+margin-top: none;
+margin-right: none;
 `

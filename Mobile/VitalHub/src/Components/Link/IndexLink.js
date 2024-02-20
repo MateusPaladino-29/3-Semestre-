@@ -1,5 +1,5 @@
 import { Linking } from "react-native"
-import { TextCancel, TextCancelProntuario, TextEmail, TextLinkMedium } from "./StylesLink"
+import { TextCancel, TextCancelCard, TextCancelProntuario, TextEmail, TextLinkMedium } from "./StylesLink"
 import { LinkAccount, TextAccount } from "../Title/StylesTitle"
 
 
@@ -42,6 +42,13 @@ export const CancelarProntuario = ({
 }) => {
     return(
         <TextCancelProntuario onPress={() => {Linking.openURL(`${url}`)}}>Cancelar</TextCancelProntuario>
+    )
+}
+export const CancelarCard = ({
+    url
+}) => {
+    return(
+        <TextCancelCard onPress={() => {Linking.openURL(`${url}`)}}>Cancelar</TextCancelCard>
     )
 }
 

@@ -23,3 +23,13 @@ color: #8C8A97;
 export const DescricaoIdade = styled(DescricaoStatus)`
 font-family:  Quicksand_400Regular;
 `
+
+export const DescricaoHour = styled.Text`
+font-family: Quicksand_600SemiBold;
+font-size: 14px;
+color: #49B3BA;
+`
+
+export const HourTextGrey = styled(DescricaoHour)`
+color: #F1F0F5;
+`

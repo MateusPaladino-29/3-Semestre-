@@ -66,7 +66,69 @@ export const FilterAppointment = styled.View`
     justify-content: space-between;
     margin-top: 18px;
     margin-left: 20px;
-    
-    
 `
 
+export const CardBox =  styled.SafeAreaView`
+width: 90%;
+background-color: white;
+height: 102px;
+border-radius: 5px;
+margin-left: 20px;
+margin-top: 30px;
+flex-direction: row;
+
+`
+
+
+export const BoxTextPaciente = styled.Text`
+width: 155px;
+height:30px;
+text-align: center;
+flex-direction: row;
+
+align-items: center;
+justify-content: center;
+justify-content: space-evenly;
+
+`
+
+
+// export const BoxTextDescricao = styled.Text`
+// flex-direction: row;
+// justify-content: space-evenly;
+// border: 1px solid black;
+// gap: 10px;
+// `
+
+export const BoxDateCancel = styled.SafeAreaView`
+align-items: center;
+flex-direction: row;
+justify-content: space-between;
+width: 240px;
+height: 28px;
+margin-top: 5px;
+margin-left: 20px;
+`
+export const DateHome = styled.SafeAreaView`
+border-radius: 5px;
+background-color: #E8FCFD;
+justify-content: space-evenly;
+flex-direction: row;
+width: 100px;
+height: 26px;
+align-items: center;
+`
+
+export const ConsultDateGrey = styled(DateHome)`
+    background-color: #F1F0F5;
+`
+
+export const BoxFlexCard = styled.SafeAreaView`
+flex-direction: column;
+
+`
+
+
+export const FlatContainer = styled.FlatList`
+width: 100%;
+`   

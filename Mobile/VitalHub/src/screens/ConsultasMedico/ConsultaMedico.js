@@ -1,12 +1,19 @@
 import { StatusBar } from "react-native";
 import {
   BoxDataHome,
+  BoxDateCancel,
+  BoxFlexCard,
   BoxHeader,
   BoxHome,
+  BoxTextDescricao,
+  BoxTextPaciente,
   ButtonHomeContainer,
+  CardBox,
   Container,
   ContainerHome,
+  DateHome,
   FilterAppointment,
+  FlatContainer,
   MoveIconBell,
   ScrollView,
 } from "../../Components/Container/stylesContainer";
@@ -15,10 +22,12 @@ import {
   ButtonTitleHome,
   NameTitle,
   Title,
+  TitleCard,
   TitleMonth,
   WelcomeTitle,
 } from "../../Components/Title/StylesTitle";
 import { Ionicons } from "@expo/vector-icons";
+import { AntDesign } from "@expo/vector-icons";
 import {
   ButtonHome,
   WhiteButtonHome,
@@ -27,11 +36,69 @@ import { Header } from "../../Components/Header/StylesHeader";
 import { CalendarHome } from "../../Components/Calendar/IndexCalendar";
 import { BtnListAppointment } from "../../Components/Button/BtnListAppointment/BtnListAppointment";
 import { useState } from "react";
-import { Descricao, DescricaoIdade, DescricaoStatus } from "../../Components/Texts/StylesText";
-import { Cancelar } from "../../Components/Link/IndexLink";
+import {
+  Descricao,
+  DescricaoHour,
+  DescricaoIdade,
+  DescricaoStatus,
+} from "../../Components/Texts/StylesText";
+import { Cancelar, CancelarCard } from "../../Components/Link/IndexLink";
 
 export const ConsultaMedico = () => {
   const [statusLista, setStatusLista] = useState("pendente");
+
+  const [selected, setSelected] = useState({
+    agendadas: true,
+    realizadas: false,
+    canceladas: false,
+  });
+
+  const image = require("../../assets/Neymar.png");
+
+  const dataItens = [
+    {
+      id: "fsdfsfsdf",
+      hour: "14:00",
+      image: image,
+      name: "Niccole Sarge",
+      age: "22 anos",
+      routine: "Rotina",
+      status: "r",
+    },
+    {
+      id: "sdfsdf",
+      hour: "15:00",
+      image: image,
+      name: "Richard Kosta",
+      age: "28 anos",
+      routine: "Urgência",
+      status: "a",
+    },
+    {
+      id: "asdas",
+      hour: "17:00",
+      image: image,
+      name: "Neymar Jr",
+      age: "28 anos",
+      routine: "Rotina",
+      status: "c",
+    },
+  ];
+
+  const Check = (data) => {
+    if (data.status === "a" && selected.agendadas) {
+      return true;
+    }
+    if (data.status === "r" && selected.realizadas) {
+      return true;
+    }
+    if (data.status === "c" && selected.canceladas) {
+      return true;
+    }
+    return false;
+  };
+
+  const data = dataItens.filter(Check);
 
   return (
     <ScrollView>
@@ -72,22 +139,39 @@ export const ConsultaMedico = () => {
         />
       </FilterAppointment>
 
-      <CardBox>
+      <FlatContainer
+        data={data}
+        renderItem={({ item }) => (
+          <Card
+            hour={item.hour}
+            name={item.name}
+            age={item.age}
+            routine={item.routine}
+            url={image}
+            status={item.status}
+          />
+        )}
+        keyExtractor={(item) => item.id}
+      />
+      {/* <CardBox>
         <LogoHome source={require("../../assets/Paciente.png")} />
-        <BoxTextCard>
-          <Title></Title>
-           <BoxTextDescricao>
-            <DescricaoIdade>22 anos</DescricaoIdade>
-            <DescricaoStatus>Rotina </DescricaoStatus>
-           </BoxTextDescricao>
 
-           <BoxDateCancel>
-            <DateHome></DateHome>
+        <BoxFlexCard>
+          <TitleCard>Niccole Sarga</TitleCard>
+          <BoxTextPaciente>
+            <DescricaoIdade> 22 anos </DescricaoIdade>
+            <DescricaoStatus> Rotina </DescricaoStatus>
+          </BoxTextPaciente>
 
-            <CancelarCard/>
-           </BoxDateCancel>
-        </BoxTextCard>
-      </CardBox>
+          <BoxDateCancel>
+            <DateHome>
+              <AntDesign name="clockcircle" size={15} color="#49B3BA" />
+              <DescricaoHour>15:00</DescricaoHour>
+            </DateHome>
+            <CancelarCard />
+          </BoxDateCancel>
+        </BoxFlexCard>
+      </CardBox> */}
     </ScrollView>
   );
 };

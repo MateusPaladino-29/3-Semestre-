@@ -66,4 +66,11 @@ font-size: 12px;
 color: #FBFBFB
 `
 
+export const TitleCard = styled(Title)`
+font-size: 14px;
+color: #33303E;
+align-self: flex-start;
+margin-left: 25px;
+margin-top: 10px;
+`
 

@@ -22,8 +22,10 @@ export const LogoHome = styled.Image`
 width: 60px;
 height: 60px;
 margin-top: 20px;
-margin-left: 9%;
+margin-left: 10px;
 padding-bottom: 0px;
+border: 1px solid black;
+border-radius: 5px;
 `
 
 export const IconBell = styled.Image`
