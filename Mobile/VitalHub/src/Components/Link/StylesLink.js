@@ -34,3 +34,7 @@ text-decoration: none;
 margin-top: none;
 margin-right: none;
 `
+
+export const SeeMedicalRecord = styled(TextCancelCard)`
+  color: #344F8F;
+`

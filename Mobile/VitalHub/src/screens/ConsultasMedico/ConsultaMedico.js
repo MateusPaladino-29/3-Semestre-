@@ -43,6 +43,7 @@ import {
   DescricaoStatus,
 } from "../../Components/Texts/StylesText";
 import { Cancelar, CancelarCard } from "../../Components/Link/IndexLink";
+import { Card } from "../../Components/Card/Cards";
 
 export const ConsultaMedico = () => {
   const [statusLista, setStatusLista] = useState("pendente");

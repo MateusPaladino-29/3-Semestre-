@@ -34,3 +34,13 @@ export const IconBell = styled.Image`
     align-self: center;
     
 `
+
+export const PointCard = styled.Image`
+    margin-bottom: 12%;
+`
+
+export const ImageCard = styled.Image`
+    width: 80px;
+    height: 80px;
+    border-radius: 5px;
+`

@@ -1,5 +1,5 @@
 import { Linking } from "react-native"
-import { TextCancel, TextCancelCard, TextCancelProntuario, TextEmail, TextLinkMedium } from "./StylesLink"
+import { SeeMedicalRecord, TextCancel, TextCancelCard, TextCancelProntuario, TextEmail, TextLinkMedium } from "./StylesLink"
 import { LinkAccount, TextAccount } from "../Title/StylesTitle"
 
 
@@ -52,3 +52,11 @@ export const CancelarCard = ({
     )
 }
 
+export const SeeRecord = ({ onPressAppointment, text }) => {
+
+    return(
+
+<SeeMedicalRecord onPress={onPressAppointment}>{text}</SeeMedicalRecord>
+
+    )
+}

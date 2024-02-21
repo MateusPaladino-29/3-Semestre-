@@ -125,10 +125,37 @@ export const ConsultDateGrey = styled(DateHome)`
 
 export const BoxFlexCard = styled.SafeAreaView`
 flex-direction: column;
-
 `
+
 
 
 export const FlatContainer = styled.FlatList`
 width: 100%;
 `   
+
+export const CardContainer = styled.SafeAreaView`
+    background-color: #fff;
+    border-radius: 5px;
+    padding: 10px;
+    margin-top: 18px;
+    width: 90%;
+    height: 105px;
+    flex-direction: row;
+    align-self: center;
+    align-items: center;
+
+`
+
+export const BoxCard = styled.SafeAreaView`
+    flex-direction: row;
+    width: 100%;
+    /* border: 1px solid black; */
+    align-items: flex-start;
+
+`
+export const BoxTextCard = styled.SafeAreaView`
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+
+`

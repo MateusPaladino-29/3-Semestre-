@@ -1,8 +1,9 @@
 import { FontAwesome6 } from "@expo/vector-icons";
-import { BoxDateCancel, ConsultDateGrey, DateHome } from "../Container/stylesContainer";
+import { BoxCard, BoxDateCancel, BoxTextCard, CardContainer, ConsultDateGrey, DateHome } from "../Container/stylesContainer";
 import { AntDesign } from "@expo/vector-icons";
-import { CancelarCard } from "../Link/IndexLink";
+import { CancelarCard, SeeRecord } from "../Link/IndexLink";
 import { DescricaoHour, HourTextGrey } from "../Texts/StylesText";
+import { ImageCard, PointCard } from "../Logo/StylesLogo";
 
 export const Card = ({ url, name, age, routine, hour, status }) => {
   const Check = () => {
@@ -68,7 +69,7 @@ export const Card = ({ url, name, age, routine, hour, status }) => {
           <AgeCard>
             <AgeTextCard>{age}</AgeTextCard>
 
-            <PointCard source={require("../../assets/PointCard.png")} />
+            <PointCard source={require("../../assets/Neymar.png")} />
 
             <RoutineTextCard>{routine}</RoutineTextCard>
           </AgeCard>
