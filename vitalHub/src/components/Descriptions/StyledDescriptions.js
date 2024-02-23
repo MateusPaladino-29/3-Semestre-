@@ -44,11 +44,15 @@ export const CancelButton = styled(ResendCode)`
     font-family: MontserratAlternates_600SemiBold;
     margin-top: 40px;
     margin-left: 40%;
+    margin-bottom: 15px;
 `
 
 export const CancelLessMargin = styled(CancelButton)`
     margin-top: 1px;
-    margin-left: 37%;
+    margin-left: 42%;
+    align-items: center;
+    justify-content: center;
+
 `
 export const CancelButtonRecords = styled(CancelButton)`
     margin-top:25px;
@@ -83,6 +87,10 @@ export const HourText = styled.Text`
     font-size: 14px;
     font-family: Quicksand_600SemiBold;
 `
+
+export const HourTextClinic = styled(HourText)`
+
+`
 export const HourTextGray = styled(HourText)`
     color: #4E4B59;
 `
@@ -107,3 +115,17 @@ export const DescriptionCancel = styled.Text`
     text-align: center;
 `
 
+export const NameClinicText = styled.Text`   
+font-family: MontserratAlternates_600SemiBold;
+font-size: 16px;
+color: #33303E;
+`
+
+export const LocationText = styled(NameClinicText)`
+font-size: 14px;
+`
+export const RateText = styled.Text`
+    font-size: 14px;
+    font-family: QuickSand_600SemiBold;
+    color: #F9A620;
+`

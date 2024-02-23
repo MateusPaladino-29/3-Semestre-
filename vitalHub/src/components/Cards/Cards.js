@@ -1,141 +1,168 @@
+import {
+  BoxCalendar,
+  BoxCard,
+  BoxDateCancel,
+  BoxRateStar,
+  BoxRateTime,
+  BoxTextCard,
+  BoxTextDoctorCard,
+  MoveIconBell,
+} from "../Container/StyleContainer";
+import {
+  ConsultDate,
+  ConsultDateGray,
+  ConsultDateGrey,
+} from "../DateConsult/StyleDateConsult";
+import { CardCancel, SeeRecord } from "../Descriptions/Descriptions";
+import {
+  AgeTextCard,
+  CancelCard,
+  DescripritionForgot,
+  DoctorArea,
+  HourText,
+  HourTextClinic,
+  HourTextGray,
+  HourTextGrey,
+  LocationText,
+  NameClinicText,
+  RateText,
+  RoutineTextCard,
+  SeeMedicalRecord,
+} from "../Descriptions/StyledDescriptions";
+import { ImageCard, PointCard } from "../Images/StyleImages";
+import { NameCard, NameCardSelect, Title } from "../Title/StyleTitle";
+import { AgeCard, CardContainer, CardContainerClinic } from "./StyleCards";
 
-import { BoxCard, BoxDateCancel, BoxTextCard, BoxTextDoctorCard } from "../Container/StyleContainer"
-import { ConsultDate, ConsultDateGray, ConsultDateGrey } from "../DateConsult/StyleDateConsult"
-import { CardCancel, SeeRecord } from "../Descriptions/Descriptions"
-import { AgeTextCard, CancelCard, DescripritionForgot, DoctorArea, HourText, HourTextGray, HourTextGrey, RoutineTextCard, SeeMedicalRecord } from "../Descriptions/StyledDescriptions"
-import { ImageCard, PointCard } from "../Images/StyleImages"
-import { NameCard, NameCardSelect, Title } from "../Title/StyleTitle"
-import { AgeCard, CardContainer } from "./StyleCards"
+import { FontAwesome6 } from "@expo/vector-icons";
+import { AntDesign } from "@expo/vector-icons";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
 
-import { FontAwesome6 } from '@expo/vector-icons';
+export const Card = ({
+  url,
+  name,
+  age,
+  routine,
+  hour,
+  status,
+  onPressCancel,
+  onPressAppointment,
+}) => {
+  const Check = () => {
+    if (status === "a") {
+      return (
+        <BoxDateCancel>
+          <ConsultDate>
+            <FontAwesome6 name="clock" size={15} color="#49B3BA" />
 
+            <HourText>{hour}</HourText>
+          </ConsultDate>
 
+          <CardCancel onPressCancel={onPressCancel} text={"Cancelar"} />
+        </BoxDateCancel>
+      );
+    } else if (status === "r") {
+      return (
+        <BoxDateCancel>
+          <ConsultDateGray>
+            <FontAwesome6 name="clock" size={15} color="#4E4B59" />
 
-export const Card = ({ url, name, age, routine, hour, status, onPressCancel, onPressAppointment }) => {
+            <HourTextGray>{hour}</HourTextGray>
+          </ConsultDateGray>
 
-    const Check = () => {
+          <SeeRecord
+            onPressAppointment={onPressAppointment}
+            text={"Ver Prontuário"}
+          />
+        </BoxDateCancel>
+      );
+    } else if (status === "c") {
+      return (
+        <BoxDateCancel>
+          <ConsultDateGray>
+            <FontAwesome6 name="clock" size={15} color="#4E4B59" />
 
-        if (status === "a") {
-            return (
-                <BoxDateCancel>
-
-                    <ConsultDate>
-
-                        <FontAwesome6 name="clock" size={15} color="#49B3BA" />
-
-                        <HourText>{hour}</HourText>
-
-                    </ConsultDate>
-
-                    <CardCancel onPressCancel={onPressCancel} text={"Cancelar"}/>
-
-                </BoxDateCancel>
-            )
-
-
-        } else if (status === "r") {
-            return (
-                <BoxDateCancel>
-
-                    <ConsultDateGray>
-
-                        <FontAwesome6 name="clock" size={15} color="#4E4B59" />
-
-                        <HourTextGray>{hour}</HourTextGray>
-
-                    </ConsultDateGray>
-
-                    <SeeRecord onPressAppointment={onPressAppointment} text={"Ver Prontuário"}/>
-
-                </BoxDateCancel>
-            )
-        }
-        else if (status === "c") {
-            return (
-                <BoxDateCancel>
-
-                    <ConsultDateGray>
-
-                        <FontAwesome6 name="clock" size={15} color="#4E4B59" />
-
-                        <HourTextGray>{hour}</HourTextGray>
-
-                    </ConsultDateGray>
-
-                </BoxDateCancel>
-            )
-
-        }
-        // return (
-        //     <BoxDateCancel>
-
-        //     <ConsultDateGrey>
-
-        //         <FontAwesome6 name="clock" size={15} color="#4E4B59" />
-
-        //         <HourTextGrey>{hour}</HourTextGrey>
-
-        //     </ConsultDateGrey>
-
-        //     <CancelCard>Ver Prontuario</CancelCard>
-
-        // </BoxDateCancel>
-        // )
-
+            <HourTextGray>{hour}</HourTextGray>
+          </ConsultDateGray>
+        </BoxDateCancel>
+      );
     }
+    // return (
+    //     <BoxDateCancel>
 
-    return (
+    //     <ConsultDateGrey>
 
-        <CardContainer>
+    //         <FontAwesome6 name="clock" size={15} color="#4E4B59" />
 
-            <BoxCard>
+    //         <HourTextGrey>{hour}</HourTextGrey>
 
-                <ImageCard source={url} />
+    //     </ConsultDateGrey>
 
-                <BoxTextCard>
+    //     <CancelCard>Ver Prontuario</CancelCard>
 
-                    <NameCard>{name}</NameCard>
+    // </BoxDateCancel>
+    // )
+  };
 
-                    <AgeCard>
+  return (
+    <CardContainer>
+      <BoxCard>
+        <ImageCard source={url} />
 
-                        <AgeTextCard>{age}</AgeTextCard>
+        <BoxTextCard>
+          <NameCard>{name}</NameCard>
 
-                        <PointCard source={require('../../assets/PointCard.png')} />
+          <AgeCard>
+            <AgeTextCard>{age}</AgeTextCard>
 
-                        <RoutineTextCard>{routine}</RoutineTextCard>
+            <PointCard source={require("../../assets/PointCard.png")} />
 
-                    </AgeCard>
+            <RoutineTextCard>{routine}</RoutineTextCard>
+          </AgeCard>
 
-                    {Check()}
-
-                </BoxTextCard>
-
-            </BoxCard>
-
-        </CardContainer>
-
-    )
-}
+          {Check()}
+        </BoxTextCard>
+      </BoxCard>
+    </CardContainer>
+  );
+};
 
 export const CardSelectDoctor = ({ url, name, doctorArea }) => {
+  return (
+    <CardContainer>
+      <ImageCard source={url} />
 
-    return (
+      <BoxCard>
+        <BoxTextDoctorCard>
+          <NameCardSelect>{name}</NameCardSelect>
 
-        <CardContainer>
-            <ImageCard source={url} />
+          <DoctorArea>{doctorArea}</DoctorArea>
+        </BoxTextDoctorCard>
+      </BoxCard>
+    </CardContainer>
+  );
+};
 
-            <BoxCard>
+export const CardSelecClinc = ({ NameClinic, Location, Rate, OpenTime }) => {
+  return (
+    <CardContainerClinic>
+      <BoxCard>
+        <BoxTextCard>
+          <NameClinicText>{NameClinic}</NameClinicText>
+          <LocationText>{Location}</LocationText>
+        </BoxTextCard>
 
-                <BoxTextDoctorCard>
-                    <NameCardSelect>{name}</NameCardSelect>
+        <BoxRateTime>
+          <BoxRateStar>
+            <AntDesign name="star" size={20} color="#F9A620" />
+            <RateText>{Rate}</RateText>
+          </BoxRateStar>
 
-                    <DoctorArea>{doctorArea}</DoctorArea>
-                </BoxTextDoctorCard>
-
-            </BoxCard>
-
-        </CardContainer>
-
-    )
-
-}
+          <BoxCalendar>
+            <MaterialCommunityIcons name="calendar" size={15} color="#49B3BA" />
+            <HourTextClinic>{OpenTime}</HourTextClinic>
+          </BoxCalendar>
+        </BoxRateTime>
+      </BoxCard>
+    </CardContainerClinic>
+  );
+};

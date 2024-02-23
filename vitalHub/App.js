@@ -7,6 +7,8 @@ import { ForgotPassword } from './src/screens/ForgotPassword/ForgotPassword';
 
 import { useFonts, MontserratAlternates_500Medium, MontserratAlternates_600SemiBold, MontserratAlternates_700Bold } from '@expo-google-fonts/montserrat-alternates';
 import { Quicksand_500Medium, Quicksand_600SemiBold } from '@expo-google-fonts/quicksand';
+
+
 import { CheckEmail } from './src/screens/CheckEmail/ChekEmail';
 import { RedefinePassword } from './src/screens/RedefinePassword/RedefinePassword';
 import { CreateAccount } from './src/screens/CreateAccount/CreateAccount';
@@ -15,6 +17,7 @@ import { MedicalRecords } from './src/screens/MedicalRecords/MedicalRecords';
 import { DoctorConsultation } from './src/screens/DoctorConsultation/DoctorConsultation';
 import { SelectDoctor } from './src/screens/SelectDoctor/SelectDoctor';
 import { SelectCLinic } from './src/screens/SelectClinic/SelectClinic';
+import { PatientConsultation } from './src/screens/PatientConsultation/PatientConsultation';
 
 
 const Stack = createNativeStackNavigator();
@@ -103,6 +106,12 @@ export default function App() {
           name="DoctorConsultation"
           component={DoctorConsultation}
           options={{ title: 'DoctorConsultation' }}
+        />
+
+        <Stack.Screen
+          name="PatientConsultation"
+          component={PatientConsultation}
+          options={{ title: 'PatientConsultation' }}
         />
 
         <Stack.Screen

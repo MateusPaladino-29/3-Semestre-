@@ -55,3 +55,10 @@ export const NameCardSelect = styled.Text`
     align-self: flex-start;
     color: #33303E;
 `
+
+export const TitleModalSchedule = styled.Text`
+  font-family: Quicksand_600SemiBold;
+  font-size: 14px;
+  align-self: flex-start;
+  margin-bottom: 5px;
+`

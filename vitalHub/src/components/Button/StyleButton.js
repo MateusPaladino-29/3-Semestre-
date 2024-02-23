@@ -58,6 +58,18 @@ export const WhiteButtonHome = styled(ButtonHome)`
 export const LargeButtonSelect= styled(LargeButton)`
     width: 91%;
     height: 52px;
-    margin-top: 30px;
+    margin-top: 150px;
     margin-bottom: 25px;
+    
 `
+
+export const ButtonLevel = styled.TouchableOpacity`
+width: 30%;
+height: 55px;
+padding-top:16px;
+font-family: "MontserratAlternates_600SemiBold";
+border: 2px solid  #60BFC5;
+border-radius: 10px;
+display: flex;
+align-items:center;
+`;

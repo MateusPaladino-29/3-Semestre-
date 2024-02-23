@@ -1,20 +1,21 @@
 import { FlatList, StatusBar } from "react-native"
-import { BoxDataHome, BoxHome, ButtonHomeContainer, Container, FlatContainer, MoveIconBell, ScrollContainer } from "../../components/Container/StyleContainer"
+import { BoxDataHome, BoxHome, ButtonHomeContainer, Container, FlatContainer, MoveIconBell, MoveIconstethoscope, ScrollContainer } from "../../components/Container/StyleContainer"
 import { Header } from "../../components/Header/StyledHeader"
 import { ImagemHome } from "../../components/Images/StyleImages"
 import { NameTitle, WelcomeTitle } from "../../components/Title/Title"
 import { Ionicons } from '@expo/vector-icons';
+import { FontAwesome5 } from '@expo/vector-icons';
 import Calendar from "../../components/Calendar/Calendar"
 
 import { FilterButton } from "../../components/Button/Button"
 import { useState } from "react"
-import { Card } from "../../components/Cards/Cards"
+import { Card, CardPatient } from "../../components/Cards/Cards"
 import { CancellationModal } from "../../components/CancellationModal/CancellationModal"
 import { CardCancelLess } from "../../components/Descriptions/Descriptions"
 import { AppointmentModal } from "../../components/AppointmentModal/AppointmentModal"
 
 
-export const DoctorConsultation = () => {
+export const PatientConsultation = () => {
 
     const [selected, setSelected] = useState({
         agendadas: true,
@@ -25,7 +26,7 @@ export const DoctorConsultation = () => {
     const [showModelCancel, setShowModelCancel] = useState(false)
     const [showModelAppointment, setShowModelAppointment] = useState(false)
 
-    const image = require("../../assets/ImageCard.png");
+    const image = require("../../assets/ney.webp");
 
 
     // CARD MOCADOS
@@ -35,7 +36,7 @@ export const DoctorConsultation = () => {
             id: 1,
             hour: '14:00',
             image: image,
-            name: 'Niccole Sarge',
+            name: 'Dr.Campos',
             age: '22 anos',
             routine: 'Rotina',
             status: "r"
@@ -44,7 +45,7 @@ export const DoctorConsultation = () => {
             id: 2,
             hour: '15:00',
             image: image,
-            name: 'Richard Kosta',
+            name: 'Dr.Ney',
             age: '28 anos',
             routine: 'Urgência',
             status: "a"
@@ -53,7 +54,7 @@ export const DoctorConsultation = () => {
             id: 3,
             hour: '17:00',
             image: image,
-            name: 'Neymar Jr',
+            name: 'Dr.Paladino',
             age: '28 anos',
             routine: 'Rotina',
             status: "c"
@@ -101,12 +102,12 @@ export const DoctorConsultation = () => {
 
                 <BoxHome>
 
-                    <ImagemHome source={require('../../assets/DoctorImage.png')} />
+                    <ImagemHome source={require('../../assets/Patient.png')} />
 
                     <BoxDataHome>
                         <WelcomeTitle textTitle={"Bem vindo"} />
 
-                        <NameTitle textTitle={"Dr. Claudio"} />
+                        <NameTitle textTitle={"Richard Kosta"} />
                     </BoxDataHome>
 
                 </BoxHome>
@@ -137,17 +138,22 @@ export const DoctorConsultation = () => {
                 keyExtractor={item => item.id}
             />
 
+        
+            <MoveIconstethoscope>
+                <FontAwesome5 name="stethoscope" size={28} color="white"  />
+            </MoveIconstethoscope>
+
                 <CancellationModal
                 visible={showModelCancel}
                 setShowModalCancel={setShowModelCancel}
                 />
 
-                <AppointmentModal
+                {/* <AppointmentModal
                 visible={showModelAppointment}
                 setShowModelAppointment={setShowModelAppointment}
                 // setShowModalCancel={setShowModelCancel}
                 />
-               
+                */}
 
 
             {/* <Card url={require('../../assets/ImageCard.png')} name={"Niccole Sarge"} age={"22 anos"} routine={"Rotina"} hour={"14:00"}/>
@@ -155,6 +161,8 @@ export const DoctorConsultation = () => {
                 <Card url={require('../../assets/ImageCardMale.png')} name={"Richard Kosta"} age={"28 anos"} routine={"Urgência"} hour={"15:00"}/>
 
                 <Card url={require('../../assets/ney.webp')} name={"Neymar Jr"} age={"33 anos"} routine={"Rotina"} hour={"17:00"}/> */}
+
+
 
         </Container>
 

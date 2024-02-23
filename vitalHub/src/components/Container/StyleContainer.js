@@ -4,6 +4,11 @@ export const Container = styled.SafeAreaView`
     flex: 1;
     align-items: center;
     background-color: #fafafa;
+
+`
+
+export const ContainerClinic = styled(Container)`
+background-color: alicebluer;
 `
 
 export const ViewBoxMedium = styled.SafeAreaView`
@@ -69,10 +74,20 @@ export const MoveIconBell = styled.SafeAreaView`
     width: 35px; 
     height: 35px;
     margin-top:9%;
-
-  
    align-items: center;
-   
+`
+
+export const MoveIconstethoscope = styled.TouchableOpacity`
+margin-left: 70%;
+margin-bottom: 20px;
+width: 60px;
+height: 60px;
+align-items: center;
+justify-content: center;
+border-radius: 7px;
+background-color: #49B3BA;
+
+
 `
 
 export const ButtonHomeContainer = styled.SafeAreaView`
@@ -89,10 +104,26 @@ export const BoxCard = styled.SafeAreaView`
     /* border: 1px solid black; */
     align-items: flex-start;
 `
+export const BoxCalendar = styled(BoxCard)`
+
+/* border: 1px solid black; */
+justify-content: center;
+align-items: center;
+background-color: #E8FCFD;
+margin-left: 15px;
+width: 100px;
+height: 26px;
+border-radius: 5px;
+gap:7px;
+`
+
 export const BoxTextCard = styled.SafeAreaView`
     flex-direction: column;
     width: 100%;
     height: 100%;
+    margin-top: 10px;
+    margin-left: 5px;
+    gap:6px;
 `
 export const BoxTextDoctorCard = styled(BoxTextCard)`
     margin-left: 10px;
@@ -104,6 +135,36 @@ export const BoxDateCancel = styled.SafeAreaView`
     justify-content: space-between;;
     flex-direction: row;
 `
+
+
 export const FlatContainer = styled.FlatList`
 width: 100%;
+`
+
+export const FlatContainerSelect = styled(FlatContainer)`
+width: 100%;
+height: 350px;
+`
+
+export const FlatContainerSelectClinic = styled(FlatContainer)`
+height: 550px;
+`
+
+export const BoxRateTime = styled.SafeAreaView`
+    flex-direction: column;
+    gap: 15px;
+    
+    margin-top: 4px;
+    
+    /* border: 1px solid black; */
+    margin-left: -39%;
+`
+export const BoxRateStar = styled.SafeAreaView`
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: flex-end;
+    margin-left:65px;
+    height: 22px;
+    width: 45px;
+    gap:4px;
 `

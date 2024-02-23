@@ -13,6 +13,13 @@ export const CardContainer = styled.SafeAreaView`
     flex-direction: row;
 `
 
+export const CardContainerClinic = styled(CardContainer)`
+height: 85px;
+
+elevation: 5px;
+`
+
+
 export const AgeCard = styled.SafeAreaView`
     margin-left: 9%;
     margin-bottom: 0px;
@@ -23,6 +30,8 @@ export const AgeCard = styled.SafeAreaView`
     align-items: center;
     justify-content: center;
 `
+
+
 
 // export const CardSelectDoctorContainer = styled(CardContainer)`
 

@@ -86,3 +86,15 @@ export const FilterButton = ({selected = false, text, onPress = null}) => {
         </>
     )
 }
+
+export const ButtonLevel = ({
+    onPress,
+    text
+}) => {
+    return (
+        <ButtonLevel
+            onPress={onPress}>
+                <BabyBlueButtonText>{text}</BabyBlueButtonText>
+        </ButtonLevel>
+    );
+}
