@@ -59,3 +59,9 @@ export const MapsImage = styled.Image`
 width: 100%;
 height: 324px;
 `
+
+export const ViewImage = styled.Image`
+width: 100%;
+height: 280px;
+
+`
