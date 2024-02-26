@@ -1,5 +1,5 @@
 import { HighInput, LargeInput, ProfileInput } from "../Input/Input"
-import { Label } from "../Label/Label"
+import { Label, LabelModal } from "../Label/Label"
 import { BoxInput } from "./StyleInputBox"
 
 
@@ -102,8 +102,8 @@ export const LargeInputTextBox = ({
     )
 }
 export const LargeInputBoxModal = ({
-    fieldWidth = 100,
-    fieldHeight = 90,
+    fieldWidth = 390,
+    fieldHeight = 53,
     editable = false,
     textLabel,
     placeholder,
@@ -117,7 +117,7 @@ export const LargeInputBoxModal = ({
 
         <BoxInput fieldWidth={fieldWidth} fieldHeight={fieldHeight} textLabel={textLabel}>
 
-            <Label textLabel={textLabel}/>
+            <LabelModal textLabel={textLabel}/>
 
             <LargeInput
                 placeholder={placeholder}

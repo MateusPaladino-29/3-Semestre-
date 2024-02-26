@@ -1,4 +1,4 @@
-import { InputHigh, InputNumeric, InputProfile, InputText, InputTextLarge } from "./StyleInput";
+import { InputHigh, InputNumeric, InputProfile, InputText, InputTextLarge, InputTextLargeModal } from "./StyleInput";
 
 export function Input({
     placeholder,
@@ -104,7 +104,7 @@ export function LargeInput({
     secureTextEntry = false
 }) {
     return(
-        <InputTextLarge
+        <InputTextLargeModal
         editable={editable}
         placeholder={placeholder}
         keyboardType= {keyboardType}

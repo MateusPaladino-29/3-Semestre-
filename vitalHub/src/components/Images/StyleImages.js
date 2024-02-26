@@ -54,3 +54,8 @@ export const PatientImage = styled.Image`
     border-radius: 10px;
     margin-bottom: 20px;
 `
+
+export const MapsImage = styled.Image`
+width: 100%;
+height: 324px;
+`

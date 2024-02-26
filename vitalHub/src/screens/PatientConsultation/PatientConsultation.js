@@ -1,171 +1,193 @@
-import { FlatList, StatusBar } from "react-native"
-import { BoxDataHome, BoxHome, ButtonHomeContainer, Container, FlatContainer, MoveIconBell, MoveIconstethoscope, ScrollContainer } from "../../components/Container/StyleContainer"
-import { Header } from "../../components/Header/StyledHeader"
-import { ImagemHome } from "../../components/Images/StyleImages"
-import { NameTitle, WelcomeTitle } from "../../components/Title/Title"
-import { Ionicons } from '@expo/vector-icons';
-import { FontAwesome5 } from '@expo/vector-icons';
-import Calendar from "../../components/Calendar/Calendar"
+import { FlatList, StatusBar } from "react-native";
+import {
+  BoxDataHome,
+  BoxHome,
+  ButtonHomeContainer,
+  Container,
+  FlatContainer,
+  MoveIconBell,
+  MoveIconstethoscope,
+  ScrollContainer,
+} from "../../components/Container/StyleContainer";
+import { Header } from "../../components/Header/StyledHeader";
+import { ImagemHome } from "../../components/Images/StyleImages";
+import { NameTitle, WelcomeTitle } from "../../components/Title/Title";
+import { Ionicons } from "@expo/vector-icons";
+import { FontAwesome5 } from "@expo/vector-icons";
+import Calendar from "../../components/Calendar/Calendar";
 
-import { FilterButton } from "../../components/Button/Button"
-import { useState } from "react"
-import { Card, CardPatient } from "../../components/Cards/Cards"
-import { CancellationModal } from "../../components/CancellationModal/CancellationModal"
-import { CardCancelLess } from "../../components/Descriptions/Descriptions"
-import { AppointmentModal } from "../../components/AppointmentModal/AppointmentModal"
-
+import { FilterButton } from "../../components/Button/Button";
+import { useState } from "react";
+import { Card, CardPatient } from "../../components/Cards/Cards";
+import { CancellationModal } from "../../components/CancellationModal/CancellationModal";
+import { CardCancelLess } from "../../components/Descriptions/Descriptions";
+import { AppointmentModal } from "../../components/AppointmentModal/AppointmentModal";
+import { ScheduleModal } from "../../components/ScheduleModal/ScheduleModal";
 
 export const PatientConsultation = () => {
+  const [selected, setSelected] = useState({
+    agendadas: true,
+    realizadas: false,
+    canceladas: false,
+  });
 
-    const [selected, setSelected] = useState({
-        agendadas: true,
-        realizadas: false,
-        canceladas: false,
-    });
+  const [showModelCancel, setShowModelCancel] = useState(false);
+  const [showModelAppointment, setShowModelAppointment] = useState(false);
+  const [showModal, setShowModal] = useState(false);
 
-    const [showModelCancel, setShowModelCancel] = useState(false)
-    const [showModelAppointment, setShowModelAppointment] = useState(false)
+  const image = require("../../assets/ney.webp");
 
-    const image = require("../../assets/ney.webp");
+  // CARD MOCADOS
 
+  const dataItens = [
+    {
+      id: 1,
+      hour: "14:00",
+      image: image,
+      name: "Dr.Campos",
+      age: "22 anos",
+      routine: "Rotina",
+      status: "r",
+    },
+    {
+      id: 2,
+      hour: "15:00",
+      image: image,
+      name: "Dr.Ney",
+      age: "28 anos",
+      routine: "Urgência",
+      status: "a",
+    },
+    {
+      id: 3,
+      hour: "17:00",
+      image: image,
+      name: "Dr.Paladino",
+      age: "28 anos",
+      routine: "Rotina",
+      status: "c",
+    },
+  ];
 
-    // CARD MOCADOS
+  //FILTRO PARA CARD
 
-    const dataItens = [
-        {
-            id: 1,
-            hour: '14:00',
-            image: image,
-            name: 'Dr.Campos',
-            age: '22 anos',
-            routine: 'Rotina',
-            status: "r"
-        },
-        {
-            id: 2,
-            hour: '15:00',
-            image: image,
-            name: 'Dr.Ney',
-            age: '28 anos',
-            routine: 'Urgência',
-            status: "a"
-        },
-        {
-            id: 3,
-            hour: '17:00',
-            image: image,
-            name: 'Dr.Paladino',
-            age: '28 anos',
-            routine: 'Rotina',
-            status: "c"
-        }
-    ]
-
-    //FILTRO PARA CARD
-
-    const Check = (data) => {
-        if (data.status === "a" && selected.agendadas) {
-            return true;
-        }
-        if (data.status === "r" && selected.realizadas) {
-            return true;
-        }
-        if (data.status === "c" && selected.canceladas) {
-            return true;
-        }
-        return false;
+  const Check = (data) => {
+    if (data.status === "a" && selected.agendadas) {
+      return true;
     }
+    if (data.status === "r" && selected.realizadas) {
+      return true;
+    }
+    if (data.status === "c" && selected.canceladas) {
+      return true;
+    }
+    return false;
+  };
 
-    const data = dataItens.filter(Check);
+  const data = dataItens.filter(Check);
 
-    // MODAL STATE PARA SETAR SE ESTA ABERTO
+  // MODAL STATE PARA SETAR SE ESTA ABERTO
 
-    // const [isModalOpen, setIsModalOpen] = useState(false);
+  // const [isModalOpen, setIsModalOpen] = useState(false);
 
-    // console.log(isModalOpen);
-    // const openModal = () => {
-    //     setIsModalOpen(true);
-    // };
+  // console.log(isModalOpen);
+  // const openModal = () => {
+  //     setIsModalOpen(true);
+  // };
 
-    // const closeModal = () => {
-    //     setIsModalOpen(false);
-    // };;
+  // const closeModal = () => {
+  //     setIsModalOpen(false);
+  // };;
 
-    // RETURN
+  // RETURN
 
-    return (
+  return (
+    <Container>
+      <Header>
+        <StatusBar translucent backgroundColor="transparent" />
 
-        <Container>
-            <Header>
+        <BoxHome>
+          <ImagemHome source={require("../../assets/Patient.png")} />
 
-                <StatusBar translucent backgroundColor="transparent" />
+          <BoxDataHome>
+            <WelcomeTitle textTitle={"Bem vindo"} />
 
-                <BoxHome>
+            <NameTitle textTitle={"Richard Kosta"} />
+          </BoxDataHome>
+        </BoxHome>
 
-                    <ImagemHome source={require('../../assets/Patient.png')} />
+        <MoveIconBell>
+          <Ionicons name="notifications" size={25} color="white" />
+        </MoveIconBell>
+      </Header>
 
-                    <BoxDataHome>
-                        <WelcomeTitle textTitle={"Bem vindo"} />
+      <Calendar />
 
-                        <NameTitle textTitle={"Richard Kosta"} />
-                    </BoxDataHome>
+      <ButtonHomeContainer>
+        <FilterButton
+          onPress={() => {
+            setSelected({ agendadas: true });
+          }}
+          selected={selected.agendadas}
+          text={"Agendadas"}
+        />
 
-                </BoxHome>
+        <FilterButton
+          onPress={() => {
+            setSelected({ realizadas: true });
+          }}
+          selected={selected.realizadas}
+          text={"Realizadas"}
+        />
 
+        <FilterButton
+          onPress={() => {
+            setSelected({ canceladas: true });
+          }}
+          selected={selected.canceladas}
+          text={"Canceladas"}
+        />
+      </ButtonHomeContainer>
 
-                <MoveIconBell>
-                    <Ionicons name="notifications" size={25} color="white" />
-                </MoveIconBell>
+      <FlatContainer
+        data={data}
+        renderItem={({ item }) => (
+          <Card
+            hour={item.hour}
+            name={item.name}
+            age={item.age}
+            routine={item.routine}
+            url={image}
+            status={item.status}
+            onPressCancel={() => setShowModelCancel(true)}
+            onPressAppointment={() => setShowModelAppointment(true)}
+          />
+        )}
+        keyExtractor={(item) => item.id}
+      />
 
-            </Header>
+      <MoveIconstethoscope  onPress={() => setShowModal(true)}>
+        <FontAwesome5 name="stethoscope" size={28} color="white" />
+      </MoveIconstethoscope>
 
-            <Calendar />
+      <CancellationModal
+        visible={showModelCancel}
+        setShowModalCancel={setShowModelCancel}
+      />
 
-            <ButtonHomeContainer>
+      <AppointmentModal
+        visible={showModelAppointment}
+        setShowModelAppointment={setShowModelAppointment}
+        // setShowModalCancel={setShowModelCancel}
+      />
 
-                <FilterButton onPress={() => { setSelected({ agendadas: true }) }} selected={selected.agendadas} text={'Agendadas'} />
+      <ScheduleModal visible={showModal} setShowModal={setShowModal} />
 
-                <FilterButton onPress={() => { setSelected({ realizadas: true }) }} selected={selected.realizadas} text={'Realizadas'} />
-
-                <FilterButton onPress={() => { setSelected({ canceladas: true }) }} selected={selected.canceladas} text={'Canceladas'} />
-
-            </ButtonHomeContainer>
-
-            <FlatContainer
-                data={data}
-                renderItem={({ item }) =>
-                    <Card hour={item.hour} name={item.name} age={item.age} routine={item.routine} url={image} status={item.status} onPressCancel={() => setShowModelCancel(true)} onPressAppointment={() => setShowModelAppointment(true)}/>}
-                keyExtractor={item => item.id}
-            />
-
-        
-            <MoveIconstethoscope>
-                <FontAwesome5 name="stethoscope" size={28} color="white"  />
-            </MoveIconstethoscope>
-
-                <CancellationModal
-                visible={showModelCancel}
-                setShowModalCancel={setShowModelCancel}
-                />
-
-                {/* <AppointmentModal
-                visible={showModelAppointment}
-                setShowModelAppointment={setShowModelAppointment}
-                // setShowModalCancel={setShowModelCancel}
-                />
-                */}
-
-
-            {/* <Card url={require('../../assets/ImageCard.png')} name={"Niccole Sarge"} age={"22 anos"} routine={"Rotina"} hour={"14:00"}/>
+      {/* <Card url={require('../../assets/ImageCard.png')} name={"Niccole Sarge"} age={"22 anos"} routine={"Rotina"} hour={"14:00"}/>
 
                 <Card url={require('../../assets/ImageCardMale.png')} name={"Richard Kosta"} age={"28 anos"} routine={"Urgência"} hour={"15:00"}/>
 
                 <Card url={require('../../assets/ney.webp')} name={"Neymar Jr"} age={"33 anos"} routine={"Rotina"} hour={"17:00"}/> */}
-
-
-
-        </Container>
-
-
-    )
-}
+    </Container>
+  );
+};

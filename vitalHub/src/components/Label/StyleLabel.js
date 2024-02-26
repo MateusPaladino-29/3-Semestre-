@@ -8,4 +8,9 @@ font-size: 18px;
 font-family: Quicksand_600SemiBold;
 color:#33303E;
 `
+export const InputLabelModal = styled.Text`
+font-family: Quicksand_600SemiBold;
+font-size: 14px;
+align-self: flex-start;
 
+`

@@ -4,6 +4,8 @@ export const Container = styled.SafeAreaView`
     flex: 1;
     align-items: center;
     background-color: #fafafa;
+    width: 100%;
+    
 
 `
 
@@ -97,6 +99,11 @@ export const ButtonHomeContainer = styled.SafeAreaView`
     gap: 15px;
 `
 
+export const BoxButtonLevel = styled(ButtonHomeContainer)`
+    margin-left: 0;
+`
+
+
 export const BoxCard = styled.SafeAreaView`
     flex-direction: row;
     width: 100%;
@@ -167,4 +174,4 @@ export const BoxRateStar = styled.SafeAreaView`
     height: 22px;
     width: 45px;
     gap:4px;
-`
+` 

@@ -63,6 +63,10 @@ export const LargeButtonSelect= styled(LargeButton)`
     
 `
 
+export const LargeButtonSelectModal = styled(LargeButtonSelect)`
+margin-top: 30px;
+`
+
 export const ButtonLevel = styled.TouchableOpacity`
 width: 30%;
 height: 55px;

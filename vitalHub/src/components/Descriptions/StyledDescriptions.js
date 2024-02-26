@@ -52,6 +52,7 @@ export const CancelLessMargin = styled(CancelButton)`
     margin-left: 42%;
     align-items: center;
     justify-content: center;
+    margin-right: -40px;
 
 `
 export const CancelButtonRecords = styled(CancelButton)`
@@ -63,6 +64,7 @@ export const AgeTextCard = styled(DescripritionForgot)`
     color: #8C8A97;
     font-size: 14px;
     height: 18px;
+
 `
 
 export const DoctorArea = styled(DescripritionForgot)`

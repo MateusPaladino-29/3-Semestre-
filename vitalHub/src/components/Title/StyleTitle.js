@@ -8,6 +8,11 @@ export const Title = styled.Text`
     color: #33303E;
 `
 
+export const TitleMap = styled(Title)`
+margin-top: 20px;
+margin-bottom: 0px;
+`
+
 export const TitleModal = styled(Title)`
     margin-bottom: 0px;
 `
@@ -60,5 +65,14 @@ export const TitleModalSchedule = styled.Text`
   font-family: Quicksand_600SemiBold;
   font-size: 14px;
   align-self: flex-start;
-  margin-bottom: 5px;
+  margin-bottom: 10px;
+  margin-top: 30px;
+  
+`
+
+export const Title1ModalSchedule = styled.Text`
+justify-content: center;
+font-family: MontserratAlternates_600SemiBold;
+font-size: 20px;
+
 `
