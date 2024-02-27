@@ -175,3 +175,16 @@ export const BoxRateStar = styled.SafeAreaView`
     width: 45px;
     gap:4px;
 ` 
+
+export const BoxSendCancell = styled.SafeAreaView`
+flex-direction: row;
+justify-content: center;
+margin-top: 20px;
+align-items: center;
+margin-bottom: 20px;
+gap: 110px;
+
+/* border-bottom-width: 1px solid #8C8A97; */
+`
+
+

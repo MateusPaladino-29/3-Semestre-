@@ -29,3 +29,9 @@ export const BabyBlueButtonText = styled(ButtonText)`
   font-size: 16px;
   font-family: MontserratAlternates_600SemiBold;
 `;
+
+export const SendButtonText = styled(ButtonTextHome)`
+color: white;
+font-size: 14px;
+
+`

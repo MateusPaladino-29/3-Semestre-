@@ -77,3 +77,16 @@ border-radius: 10px;
 display: flex;
 align-items:center;
 `;
+
+export const SendButton = styled.TouchableOpacity`
+background-color: #49B3BA;
+width: 172px;
+height: 44px;
+border-radius: 5px;
+align-items: center;
+flex-direction: row;
+/* justify-content: space-e; */
+justify-content: center;
+gap: 10px;
+margin-bottom: 10px;
+`

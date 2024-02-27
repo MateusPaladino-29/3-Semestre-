@@ -1,9 +1,22 @@
+import { ButtonSend } from "../../components/Button/Button";
 import {
   BoxAgeEmail,
+  BoxIconButton,
+  BoxSendCancell,
   Container,
   ScrollContainer,
 } from "../../components/Container/StyleContainer";
-import { DescriptionPassword } from "../../components/Descriptions/Descriptions";
+import {
+  CancelPhoto,
+  CardCancel,
+  CardCancelLess,
+  DescriptionPassword,
+} from "../../components/Descriptions/Descriptions";
+import {
+  CancelButtonRecords,
+  CancelLessMargin,
+  CancelPhotoCss,
+} from "../../components/Descriptions/StyledDescriptions";
 import { MapsImage, ViewImage } from "../../components/Images/StyleImages";
 import {
   HighInputBox,
@@ -18,6 +31,7 @@ import {
   TitleProfile,
 } from "../../components/Title/StyleTitle";
 
+import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { AntDesign } from "@expo/vector-icons";
 
 export const ViewPrescription = () => {
@@ -56,13 +70,19 @@ export const ViewPrescription = () => {
           editable={true}
         />
 
-        <HighInputBoxPrescriptionImage
+        <HighInputBoxPrescriptionImage 
           fieldHeight={350}
           placeholderTextColor={"#4E4B59"}
           textLabel={"Exames médicos"}
           placeholder={"[ ! ]Nenhuma foto informada"}
           editable={false}
         />
+
+        <BoxSendCancell style={{borderBottomWidth: 2, color: "Gray"}}>
+          <ButtonSend text={"Enviar"} />
+          <CancelPhoto text={"Cancelar"} />
+
+        </BoxSendCancell>
       </Container>
     </ScrollContainer>
   );

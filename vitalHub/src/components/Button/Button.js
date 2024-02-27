@@ -1,6 +1,7 @@
-import { BabyBlueButtonText, ButtonText, ButtonTextGoogle, ButtonTextHome, WhiteButtonText } from "../ButtonText/StyleButtonText";
-import { ButtonBlocked, ButtonHome, ButtonLevel, GoogleButton, LargeButton, LargeButtonSelect, LargeButtonSelectModal, NormalButton, SmallButtonBlocked, WhiteButtonHome } from "./StyleButton";
+import { BabyBlueButtonText, ButtonText, ButtonTextGoogle, ButtonTextHome, SendButtonText, WhiteButtonText } from "../ButtonText/StyleButtonText";
+import { ButtonBlocked, ButtonHome, ButtonLevel, GoogleButton, LargeButton, LargeButtonSelect, LargeButtonSelectModal, NormalButton, SendButton, SmallButtonBlocked, WhiteButtonHome } from "./StyleButton";
 import { AntDesign } from '@expo/vector-icons';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 export const ButtonNormal = ({
     onPress,
@@ -96,5 +97,18 @@ export const LevelButton = ({
             onPress={onPress}>
                 <BabyBlueButtonText>{text}</BabyBlueButtonText>
         </ButtonLevel>
+    );
+}
+export const ButtonSend = ({
+    onPress,
+    text
+}) => {
+    return (
+        <SendButton
+            onPress={onPress}>
+                  <MaterialCommunityIcons name="camera-plus" size={24} color="white" />
+                <SendButtonText>{text}</SendButtonText>
+              
+        </SendButton>
     );
 }
