@@ -21,6 +21,10 @@ export const TitleProfile = styled(Title)`
     margin-bottom: 12px;
 `
 
+export const TitlePrescription = styled(Title)`
+margin-top: 10PX;
+`
+
 export const TitleName = styled.Text`
     font-family: MontserratAlternates_600SemiBold;
     font-size: 16px;

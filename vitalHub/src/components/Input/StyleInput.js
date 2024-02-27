@@ -1,5 +1,6 @@
 import styled, { css } from "styled-components";
 
+
 export const InputText = styled.TextInput`
 width:80%;
 border:2px solid #49B3BA;
@@ -47,6 +48,28 @@ export const InputHigh = styled(InputText)`
     height: 125px;
     width: 90%;
 `
+export const InputHighPrescription = styled(InputText)`
+    padding-bottom: 82px;
+    height: 125px;
+    width: 100%;
+    font-size: 14px;
+    color: #4E4B59;
+    border: 1px solid #F5F3F3;
+    background-color: #F5F3F3;
+    
+`
+
+export const InputHighPrescriptionImage = styled(InputText)`
+
+/* align-items: center; */
+text-align: center;
+height: 111px;
+width: 100%;
+border: 1px solid #F5F3F3;
+font-size: 14px;
+background-color: #F5F3F3;
+
+`
 
 export const InputTextLarge = styled(InputText)`
     width: 90%;
@@ -56,4 +79,11 @@ export const InputTextLargeModal = styled(InputText)`
     width: 100%;
     text-transform: capitalize;
     font-size: 16px;
+`
+
+export const InputTextLargePrescription = styled(InputText)`
+background-color: #F5F3F3;
+width: 100%;
+border: 1px solid #F5F3F3;
+font-size: 14px;
 `

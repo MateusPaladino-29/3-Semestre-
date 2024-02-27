@@ -1,4 +1,4 @@
-import { InputHigh, InputNumeric, InputProfile, InputText, InputTextLarge, InputTextLargeModal } from "./StyleInput";
+import { InputHigh, InputHighPrescription, InputHighPrescriptionImage, InputNumeric, InputProfile, InputText, InputTextLarge, InputTextLargeModal, InputTextLargePrescription } from "./StyleInput";
 
 export function Input({
     placeholder,
@@ -92,6 +92,53 @@ export function HighInput({
         />
     )
 }
+export function HighInputPrescription({
+    placeholder,
+    fieldValue,
+    onChangeText ,
+    keyboardType,
+    maxLength,
+    placeholderTextColor,
+    editable = true,
+    secureTextEntry = false
+}) {
+    return(
+        <InputHighPrescription
+        editable={editable}
+        placeholder={placeholder}
+        keyboardType= {keyboardType}
+        placeholderTextColor={placeholderTextColor}
+        maxLength={maxLength}
+        value= {fieldValue}
+        onChangeText={onChangeText}
+        secureTextEntry={secureTextEntry}
+        />
+    )
+}
+export function HighInputPrescriptionImage({
+    placeholder,
+    fieldValue,
+    onChangeText ,
+    keyboardType,
+    maxLength,
+    placeholderTextColor,
+    editable = true,
+    secureTextEntry = false
+}) {
+    return(
+        <InputHighPrescriptionImage
+        editable={editable}
+        placeholder={placeholder}
+        keyboardType= {keyboardType}
+        placeholderTextColor={placeholderTextColor}
+        maxLength={maxLength}
+        value= {fieldValue}
+        onChangeText={onChangeText}
+        secureTextEntry={secureTextEntry}
+        />
+    )
+}
+
 
 export function LargeInput({
     placeholder,
@@ -105,6 +152,29 @@ export function LargeInput({
 }) {
     return(
         <InputTextLargeModal
+        editable={editable}
+        placeholder={placeholder}
+        keyboardType= {keyboardType}
+        placeholderTextColor={placeholderTextColor}
+        maxLength={maxLength}
+        value= {fieldValue}
+        onChangeText={onChangeText}
+        secureTextEntry={secureTextEntry}
+        />
+    )
+}
+export function LargeInputPrescription({
+    placeholder,
+    fieldValue,
+    onChangeText ,
+    keyboardType,
+    maxLength,
+    placeholderTextColor,
+    editable = true,
+    secureTextEntry = false
+}) {
+    return(
+        <InputTextLargePrescription
         editable={editable}
         placeholder={placeholder}
         keyboardType= {keyboardType}

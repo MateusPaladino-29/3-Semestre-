@@ -45,7 +45,7 @@ export const BoxAgeEmail = styled.SafeAreaView`
     justify-content: space-around;
     margin-top: 2px;
     margin-right: 35px;
-    margin-left: 35px;
+    margin-left: 95px;
 `
 
 export const BoxDataHome = styled.SafeAreaView`
