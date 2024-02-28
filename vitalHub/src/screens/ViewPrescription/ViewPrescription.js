@@ -10,6 +10,7 @@ import {
   CancelPhoto,
   CardCancel,
   CardCancelLess,
+  CardCancelLessPrescription,
   DescriptionPassword,
 } from "../../components/Descriptions/Descriptions";
 import {
@@ -78,11 +79,20 @@ export const ViewPrescription = () => {
           editable={false}
         />
 
-        <BoxSendCancell style={{borderBottomWidth: 2, color: "Gray"}}>
+        <BoxSendCancell style={{borderBottomWidth: 2, color: "#8C8A97"}}>
           <ButtonSend text={"Enviar"} />
           <CancelPhoto text={"Cancelar"} />
 
         </BoxSendCancell>
+
+        <HighInputBoxPrescription
+          fieldHeight={350}
+          placeholderTextColor={"#4E4B59"}
+          placeholder={"Resultado do exame:"}
+          editable={true}
+        />
+
+        <CardCancelLessPrescription text={"Voltar"}/>
       </Container>
     </ScrollContainer>
   );

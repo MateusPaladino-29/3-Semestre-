@@ -55,6 +55,12 @@ export const CancelLessMargin = styled(CancelButton)`
     margin-right: -40px;
 `
 
+export const CancelLessMarginPrescription = styled(CancelButton)`
+margin-right: -110px;
+
+margin-bottom: 30px;
+`
+
 export const PhotoCancel = styled.Text`
  font-family: MontserratAlternates_500Medium;
  font-size: 12px;
