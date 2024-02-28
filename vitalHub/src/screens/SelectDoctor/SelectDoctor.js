@@ -10,6 +10,7 @@ import { ButtonLarge, ButtonLargeSelect } from "../../components/Button/Button";
 import { CancelLessMargin } from "../../components/Descriptions/StyledDescriptions";
 import { useState } from "react";
 import { ScheduleModal } from "../../components/ScheduleModal/ScheduleModal";
+import { PatientAppointmentModal } from "../../components/PatientAppointmentModal/PatientAppointmentModal";
 
 // const [showModalCancel, setShowModalCancel] = useState(false);
 
@@ -72,11 +73,17 @@ export const SelectDoctor = () => {
 
         <CancelLessMargin>Cancelar</CancelLessMargin>
 
+        {/* <ScheduleModal visible={showModal} setShowModal={setShowModal} /> */}
+
+        <PatientAppointmentModal
+          visible={showModalAppointment}
+          setShowModalAppointment={setShowModalAppointment}
+        />
+
         {/* <CancellationModal
           visible={showModalCancel}
           setShowModalCancel={setShowModalCancel}
         /> */}
-
       </Container>
     </ScrollContainer>
   );

@@ -23,8 +23,9 @@ import { CancellationModal } from "../../components/CancellationModal/Cancellati
 import { CardCancelLess } from "../../components/Descriptions/Descriptions";
 import { AppointmentModal } from "../../components/AppointmentModal/AppointmentModal";
 import { ScheduleModal } from "../../components/ScheduleModal/ScheduleModal";
+import { PatientAppointmentModal } from "../../components/PatientAppointmentModal/PatientAppointmentModal";
 
-export const PatientConsultation = () => {
+export const PatientConsultation = ({ navigation }) => {
   const [selected, setSelected] = useState({
     agendadas: true,
     realizadas: false,
@@ -34,6 +35,7 @@ export const PatientConsultation = () => {
   const [showModelCancel, setShowModelCancel] = useState(false);
   const [showModelAppointment, setShowModelAppointment] = useState(false);
   const [showModal, setShowModal] = useState(false);
+  const [showModalPatient, setShowModalPatient] = useState(false);
 
   const image = require("../../assets/ney.webp");
 
@@ -161,27 +163,40 @@ export const PatientConsultation = () => {
             status={item.status}
             onPressCancel={() => setShowModelCancel(true)}
             onPressAppointment={() => setShowModelAppointment(true)}
+            onPressCard={() => setShowModalPatient(true)}
           />
         )}
         keyExtractor={(item) => item.id}
       />
 
-      <MoveIconstethoscope  onPress={() => setShowModal(true)}>
+      <MoveIconstethoscope onPress={() => setShowModal(true)}>
         <FontAwesome5 name="stethoscope" size={28} color="white" />
       </MoveIconstethoscope>
 
       <CancellationModal
+        navigation={navigation}
         visible={showModelCancel}
         setShowModalCancel={setShowModelCancel}
       />
 
       <AppointmentModal
+        navigation={navigation}
         visible={showModelAppointment}
         setShowModelAppointment={setShowModelAppointment}
         // setShowModalCancel={setShowModelCancel}
       />
 
-      <ScheduleModal visible={showModal} setShowModal={setShowModal} />
+      <ScheduleModal
+        visible={showModal}
+        setShowModal={setShowModal}
+        navigation={navigation}
+      />
+
+      <PatientAppointmentModal
+        navigation={navigation}
+        visible={showModalPatient}
+        setShowModalAppointment={setShowModalPatient}
+      />
 
       {/* <Card url={require('../../assets/ImageCard.png')} name={"Niccole Sarge"} age={"22 anos"} routine={"Rotina"} hour={"14:00"}/>
 

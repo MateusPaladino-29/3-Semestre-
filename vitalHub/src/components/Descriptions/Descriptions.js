@@ -10,6 +10,8 @@ import {
   PhotoCancel,
   ResendCode,
   SeeMedicalRecord,
+  SmallDescriptionModal,
+  SmallDescriptionModal2,
 } from "./StyledDescriptions";
 
 export const DescriptionPassword = ({ description }) => {
@@ -43,8 +45,21 @@ export const CardCancelLess = ({ onPressCancel, text }) => {
   return <CancelLessMargin onPress={onPressCancel}>{text}</CancelLessMargin>;
 };
 export const CardCancelLessPrescription = ({ onPressCancel, text }) => {
-  return <CancelLessMarginPrescription onPress={onPressCancel}>{text}</CancelLessMarginPrescription>;
+  return (
+    <CancelLessMarginPrescription onPress={onPressCancel}>
+      {text}
+    </CancelLessMarginPrescription>
+  );
 };
 export const CancelPhoto = ({ onPressCancel, text }) => {
   return <PhotoCancel onPress={onPressCancel}>{text}</PhotoCancel>;
 };
+
+export const DescripritionModalSmall = ({ text }) => {
+  return <SmallDescriptionModal>{text}</SmallDescriptionModal>;
+};
+
+export const DescripritionModalSmall2 = ({ text }) => {
+  return <SmallDescriptionModal2>{text}</SmallDescriptionModal2>;
+};
+

@@ -14,6 +14,7 @@ border-radius: 10px;
 background-color: #fff;
 align-items: center;
 
+
 `
 
 // export const ModalText = styled.Text`

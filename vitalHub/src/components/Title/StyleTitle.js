@@ -53,6 +53,7 @@ export const NameCard = styled(Title)`
 
 export const TitleSelect = styled(Title)`
     margin-top: 25%;
+   
 `
 
 export const NameCardSelect = styled.Text`
@@ -79,4 +80,9 @@ justify-content: center;
 font-family: MontserratAlternates_600SemiBold;
 font-size: 20px;
 
+`
+
+export const TitleModalRecord = styled(TitleModal)`
+    margin-bottom: 18px;
+    margin-top: 30px;
 `

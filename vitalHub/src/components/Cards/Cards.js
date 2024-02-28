@@ -46,6 +46,7 @@ export const Card = ({
   status,
   onPressCancel,
   onPressAppointment,
+  onPressCard,
 }) => {
   const Check = () => {
     if (status === "a") {
@@ -104,7 +105,7 @@ export const Card = ({
   };
 
   return (
-    <CardContainer>
+    <CardContainer onPress={onPressCard}>
       <BoxCard>
         <ImageCard source={url} />
 

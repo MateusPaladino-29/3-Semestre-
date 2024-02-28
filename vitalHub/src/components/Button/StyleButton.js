@@ -64,7 +64,7 @@ export const LargeButtonSelect= styled(LargeButton)`
 `
 
 export const LargeButtonSelectModal = styled(LargeButtonSelect)`
-margin-top: 30px;
+margin-top: -50;
 `
 
 export const ButtonLevel = styled.TouchableOpacity`
@@ -89,4 +89,11 @@ flex-direction: row;
 justify-content: center;
 gap: 10px;
 margin-bottom: 10px;
+`
+
+export const LargeButtonConfirmModal = styled(LargeButton)`
+    width: 100%;
+    height: 50px;
+    margin-top: 4%;
+    margin-bottom: 25px;
 `

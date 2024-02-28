@@ -1,7 +1,7 @@
 import styled, { css } from "styled-components";
 
 
-export const CardContainer = styled.SafeAreaView`
+export const CardContainer = styled.TouchableOpacity`
     margin-top: 12px;
     align-self: center;
     align-itens: center;

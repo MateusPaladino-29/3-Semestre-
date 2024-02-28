@@ -1,5 +1,5 @@
 import { BabyBlueButtonText, ButtonText, ButtonTextGoogle, ButtonTextHome, SendButtonText, WhiteButtonText } from "../ButtonText/StyleButtonText";
-import { ButtonBlocked, ButtonHome, ButtonLevel, GoogleButton, LargeButton, LargeButtonSelect, LargeButtonSelectModal, NormalButton, SendButton, SmallButtonBlocked, WhiteButtonHome } from "./StyleButton";
+import { ButtonBlocked, ButtonHome, ButtonLevel, GoogleButton, LargeButton, LargeButtonConfirmModal, LargeButtonSelect, LargeButtonSelectModal, NormalButton, SendButton, SmallButtonBlocked, WhiteButtonHome } from "./StyleButton";
 import { AntDesign } from '@expo/vector-icons';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 
@@ -110,5 +110,17 @@ export const ButtonSend = ({
                 <SendButtonText>{text}</SendButtonText>
               
         </SendButton>
+    );
+}
+
+export const ButtonLargeConfirmModal = ({
+    onPress,
+    text
+}) => {
+    return (
+        <LargeButtonConfirmModal
+            onPress={onPress}>
+                <ButtonText>{text}</ButtonText>
+        </LargeButtonConfirmModal>
     );
 }

@@ -128,6 +128,7 @@ export const DescriptionCancel = styled.Text`
     font-family: Quicksand_500Medium;
     color: #4E4B59;
     text-align: center;
+    margin-bottom: 90px;
 `
 
 export const NameClinicText = styled.Text`   
@@ -143,4 +144,34 @@ export const RateText = styled.Text`
     font-size: 14px;
     font-family: QuickSand_600SemiBold;
     color: #F9A620;
+`
+
+export const DescriptionConfirmModal = styled(DescripritionForgot)`
+    width: 90%;
+    margin-top: 0px;
+    font-size: 17px;
+    margin-bottom: 0px;
+    color: #000000;
+`
+
+export const SmallDescriptionModal = styled(DescripritionForgot)`
+    font-size: 13px;
+    align-self: flex-start;
+    color: #5F5C6B;
+    width: 100%;
+    text-align: none;
+    margin-bottom: 20px;
+`
+
+export const SmallDescriptionModal2 = styled(DescripritionForgot)`
+    font-size: 13px;
+    align-self: flex-start;
+    color: #5F5C6B;
+    width: 100%;
+    text-align: none;
+    margin-bottom: 0px;
+`
+
+export const DescriptionModalRecord = styled(DescripritionForgot)`
+    font-size: 14px;
 `
