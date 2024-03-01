@@ -1,7 +1,7 @@
 import { Modal } from "react-native";
 import {ButtonLargeConfirmModal, ButtonLargeModal, ButtonLargeSelect,} from "../Button/Button";
 import {ModalContent,PatientModal,} from "../CancellationModal/StyleCancellationModal";
-import { CardCancelLess } from "../Descriptions/Descriptions";
+import { CardCancelLess, CardCancelLessModal } from "../Descriptions/Descriptions";
 import { DescriptionModalRecord } from "../Descriptions/StyledDescriptions";
 import { ImageModalRecord } from "../Images/StyleImages";
 
@@ -10,6 +10,7 @@ import { TitleModalRecord } from "../Title/StyleTitle.js";
 
 
 export const PatientAppointmentModal = ({
+  navigation,
   visible,
   setShowModalAppointment = null,
   ...rest
@@ -29,9 +30,9 @@ export const PatientAppointmentModal = ({
             <DescriptionModalRecord>CRM-15286</DescriptionModalRecord>
           </BoxAgeEmailModal>
 
-          <ButtonLargeConfirmModal text={"Ver Local da Consulta"} />
+          <ButtonLargeConfirmModal onPress={() => navigation.navigate("ConsultLocalization")}  text={"Ver Local da Consulta"} />
 
-          <CardCancelLess
+          <CardCancelLessModal
             onPressCancel={() => setShowModalAppointment(false)}
             text={"Cancelar"}
           />

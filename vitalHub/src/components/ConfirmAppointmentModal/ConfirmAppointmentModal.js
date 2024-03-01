@@ -5,12 +5,13 @@ import { DescriptionConfirmModal, SmallDescriptionModal } from "../Descriptions/
 import { BoxDescriptions, BoxMedicoConsulta } from "./StyleConfirmAppointmentModal"
 import { Label } from "../Label/Label"
 import { LabelDescription } from "../Label/StyleLabel"
-import { CardCancelLess, DescripritionModalSmall, DescripritionModalSmall2 } from "../Descriptions/Descriptions"
+import { CardCancelLess, CardCancelLessModal, DescripritionModalSmall, DescripritionModalSmall2 } from "../Descriptions/Descriptions"
 import { ButtonLargeConfirmModal, ButtonLargeModal, ButtonLargeSelect } from "../Button/Button"
 
 
 export const ConfirmAppointmentModal = ({
     visible,
+    navigation,
     setShowModal = null,
     ...rest
 }) => {
@@ -53,9 +54,9 @@ export const ConfirmAppointmentModal = ({
  
                     </BoxDescriptions> 
 
-                    <ButtonLargeConfirmModal text={"Confirmar"} />
+                    <ButtonLargeConfirmModal onPress={() => { navigation.navigate("PatientProfile") }} text={"Confirmar"} />
 
-                    <CardCancelLess onPressCancel={() => setShowModal(false)} text={"Cancelar"} />
+                    <CardCancelLessModal onPressCancel={() => setShowModal(false)} text={"Cancelar"} />
 
                 </ModalContent>
 

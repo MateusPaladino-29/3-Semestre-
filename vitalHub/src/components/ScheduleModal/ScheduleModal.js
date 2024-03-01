@@ -1,13 +1,13 @@
 import { Modal } from "react-native";
-import { ButtonLargeSelect, LevelButton } from "../Button/Button";
-import { CardCancelLess } from "../Descriptions/Descriptions";
+import { ButtonLargeAgendament, ButtonLargeSelect, LevelButton } from "../Button/Button";
+import { CardCancelLess, CardCancelLessModal } from "../Descriptions/Descriptions";
 import { LargeInputBoxModal } from "../InputBox/InputBox";
 import { ModalContent } from "../CancellationModal/StyleCancellationModal";
 import { Title1ModalSchedule, TitleModalSchedule } from "../Title/StyleTitle";
 import { ScheduleModalContainer } from "./StylesSchuleModal";
 import { BoxButtonLevel } from "../Container/StyleContainer";
 
-export const  ScheduleModal = ({ visible, setShowModal, ...rest }) => {
+export const  ScheduleModal = ({navigation, visible, setShowModal, ...rest }) => {
 
   return (
     <Modal {...rest} visible={visible} transparent={true} animationType="fade">
@@ -31,9 +31,9 @@ export const  ScheduleModal = ({ visible, setShowModal, ...rest }) => {
             editable={true}
           />
 
-          <ButtonLargeSelect onPress={""} text={"continuar"} />
+          <ButtonLargeAgendament onPress={() => navigation.navigate("SelectClinic")} text={"continuar"}  />
 
-          <CardCancelLess
+          <CardCancelLessModal
             onPressCancel={() => setShowModal(false)}
             text={"Cancelar"}
           />

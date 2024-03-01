@@ -1,5 +1,7 @@
 import { StatusBar } from "react-native";
 import {
+  BoxLocalizationHome,
+  ButtonHomeContainer,
   Container,
   ContainerCepCidade,
 } from "../../components/Container/StyleContainer";
@@ -7,8 +9,14 @@ import { AgeTextCard } from "../../components/Descriptions/StyledDescriptions";
 import { MapsImage } from "../../components/Images/StyleImages";
 import { InputBox } from "../../components/InputBox/InputBox";
 import { Title, TitleMap } from "../../components/Title/StyleTitle";
+import {
+  ButtonLargeLocalization,
+  ButtonLargeSelect,
+} from "../../components/Button/Button";
 
-export const ConsultLocalization = () => {
+import { FontAwesome } from "@expo/vector-icons";
+
+export const ConsultLocalization = ({navigation}) => {
   return (
     <Container>
       <StatusBar translucent backgroundColor="transparent" />
@@ -42,6 +50,11 @@ export const ConsultLocalization = () => {
           fieldWidth={40}
         />
       </ContainerCepCidade>
+
+     
+      
+        <ButtonLargeLocalization onPress={() => navigation.navigate("PatientConsultation")}  text={"Voltar a Home"} />
+     
     </Container>
   );
 };

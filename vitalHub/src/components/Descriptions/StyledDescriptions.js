@@ -52,7 +52,13 @@ export const CancelLessMargin = styled(CancelButton)`
     margin-left: 42%;
     align-items: center;
     justify-content: center;
-    margin-right: -40px;
+    margin-right: -80px;
+   
+`
+
+export const CancelLessMarginModal = styled(CancelButton)`
+margin-right: -50px;
+margin-bottom: 10px;
 `
 
 export const CancelLessMarginPrescription = styled(CancelButton)`

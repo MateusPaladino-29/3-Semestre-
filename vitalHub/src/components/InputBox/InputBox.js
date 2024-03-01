@@ -5,8 +5,8 @@ import { BoxInput } from "./StyleInputBox"
 
 
 export const InputBox = ({
-    fieldWidth = 100,
-    fieldHeight = 90,
+    fieldWidth = 90,
+    fieldHeight = 100,
     editable = false,
     textLabel,
     placeholder,
@@ -38,8 +38,8 @@ export const InputBox = ({
 }
 
 export const HighInputBox = ({
-    fieldWidth = 100,
-    fieldHeight = 90,
+    fieldWidth = 90,
+    fieldHeight = 100,
     editable = false,
     textLabel,
     placeholder,
@@ -103,7 +103,7 @@ export const HighInputBoxPrescription = ({
 }
 export const HighInputBoxPrescriptionImage = ({
     fieldWidth = 90,
-    fieldHeight = 90,
+    fieldHeight = 100,
     editable = false,
     textLabel,
     placeholder,

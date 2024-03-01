@@ -11,7 +11,7 @@ import { ButtonText } from "../../components/ButtonText/StyleButtonText"
 import api from "../../services/Services"
 import { BlockedSmallButton, ButtonLarge } from "../../components/Button/Button"
 
-export const PatientProfile = () => {
+export const PatientProfile = ({navigation}) => {
 
     const [cep, setCep] = useState('');
     const [logradouro, setLogradouro] = useState('');
@@ -104,7 +104,7 @@ export const PatientProfile = () => {
                     />
                 </ContainerCepCidade>
 
-                <ButtonLarge text={"Salvar"} />
+                <ButtonLarge onPress={() => { navigation.navigate("PatientConsultation") }} text={"Salvar"} />
 
                 <ButtonLarge text={"Editar"}/>
 

@@ -155,6 +155,7 @@ height: 350px;
 
 export const FlatContainerSelectClinic = styled(FlatContainer)`
 height: 550px;
+
 `
 
 export const BoxRateTime = styled.SafeAreaView`
@@ -185,6 +186,12 @@ margin-bottom: 20px;
 gap: 110px;
 
 /* border-bottom-width: 1px solid #8C8A97; */
+`
+
+export const BoxLocalizationHome = styled.SafeAreaView`
+flex-direction: row;
+gap: 10px;
+align-items: center;
 `
 
 

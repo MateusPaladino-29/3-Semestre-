@@ -16,7 +16,7 @@ import { PatientAppointmentModal } from "../../components/PatientAppointmentModa
 
 // const [showModal, setShowModal] = useState(false);
 
-export const SelectDoctor = () => {
+export const SelectDoctor = ({navigation}) => {
   const image = require("../../assets/ImageCard.png");
 
   const dataItens = [
@@ -69,7 +69,7 @@ export const SelectDoctor = () => {
 
                 <CardSelectDoctor doctorArea={'Clínico, Pediatra'} url={require('../../assets/DermaImage.png')} name={'Dr Rodrigo Santos'}/> */}
 
-        <ButtonLargeSelect text={"Continuar"} />
+        <ButtonLargeSelect  onPress={() => { navigation.navigate("SelectDate") }} text={"Continuar"} />
 
         <CancelLessMargin>Cancelar</CancelLessMargin>
 

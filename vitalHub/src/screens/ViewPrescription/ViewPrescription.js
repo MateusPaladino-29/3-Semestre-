@@ -35,7 +35,7 @@ import {
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { AntDesign } from "@expo/vector-icons";
 
-export const ViewPrescription = () => {
+export const ViewPrescription = ({navigation}) => {
   return (
     <ScrollContainer>
       <Container>

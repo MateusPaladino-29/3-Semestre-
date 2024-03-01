@@ -2,6 +2,7 @@ import { ViewBoxCode } from "../Container/StyleContainer";
 import {
   CancelCard,
   CancelLessMargin,
+  CancelLessMarginModal,
   CancelLessMarginPrescription,
   CancelPhotoCss,
   DescripritionEmail,
@@ -43,6 +44,10 @@ export const CardCancel = ({ onPressCancel, text }) => {
 
 export const CardCancelLess = ({ onPressCancel, text }) => {
   return <CancelLessMargin onPress={onPressCancel}>{text}</CancelLessMargin>;
+};
+
+export const CardCancelLessModal = ({ onPressCancel, text }) => {
+  return <CancelLessMarginModal onPress={onPressCancel}>{text}</CancelLessMarginModal>;
 };
 export const CardCancelLessPrescription = ({ onPressCancel, text }) => {
   return (

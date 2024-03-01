@@ -26,6 +26,7 @@ import { ScheduleModal } from "../../components/ScheduleModal/ScheduleModal";
 import { PatientAppointmentModal } from "../../components/PatientAppointmentModal/PatientAppointmentModal";
 
 export const PatientConsultation = ({ navigation }) => {
+  
   const [selected, setSelected] = useState({
     agendadas: true,
     realizadas: false,
@@ -164,6 +165,8 @@ export const PatientConsultation = ({ navigation }) => {
             onPressCancel={() => setShowModelCancel(true)}
             onPressAppointment={() => setShowModelAppointment(true)}
             onPressCard={() => setShowModalPatient(true)}
+            navigation={navigation}
+            
           />
         )}
         keyExtractor={(item) => item.id}
@@ -174,13 +177,12 @@ export const PatientConsultation = ({ navigation }) => {
       </MoveIconstethoscope>
 
       <CancellationModal
-        navigation={navigation}
         visible={showModelCancel}
         setShowModalCancel={setShowModelCancel}
       />
 
       <AppointmentModal
-        navigation={navigation}
+        // navigation={navigation}
         visible={showModelAppointment}
         setShowModelAppointment={setShowModelAppointment}
         // setShowModalCancel={setShowModelCancel}
@@ -206,3 +208,5 @@ export const PatientConsultation = ({ navigation }) => {
     </Container>
   );
 };
+
+// onPress={() => { navigation.navigate("SelectDate") }}

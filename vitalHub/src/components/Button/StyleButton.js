@@ -64,7 +64,20 @@ export const LargeButtonSelect= styled(LargeButton)`
 `
 
 export const LargeButtonSelectModal = styled(LargeButtonSelect)`
-margin-top: -50;
+margin-top: -40px;
+
+`
+export const LargeButtonAgendamentModal = styled(LargeButtonSelect)`
+margin-top: 40px;
+
+`
+export const LargeButtonSelectClinic = styled(LargeButtonSelect)`
+margin-top: 40px;
+
+`
+export const LargeButtonLocalization = styled(LargeButtonSelect)`
+margin-top: 40px;
+margin-left: -10px;
 `
 
 export const ButtonLevel = styled.TouchableOpacity`

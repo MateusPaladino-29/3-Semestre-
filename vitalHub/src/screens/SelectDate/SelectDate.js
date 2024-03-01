@@ -10,7 +10,7 @@ import { ConfirmAppointmentModal } from "../../components/ConfirmAppointmentModa
 import { useState } from "react"
 
 
-export const SelectDate = () => {
+export const SelectDate = ({navigation}) => {
 
     const [showModal, setShowModal] = useState(false);
 
@@ -33,6 +33,7 @@ export const SelectDate = () => {
             <CardCancelLess onPressCancel={() => setShowModal(false)}  text={"Cancelar"} />
 
             <ConfirmAppointmentModal
+                navigation={navigation}
                 visible={showModal}
                 setShowModal={setShowModal}
             />

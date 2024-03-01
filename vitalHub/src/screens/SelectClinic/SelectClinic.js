@@ -1,4 +1,4 @@
-import { ButtonLargeSelect } from "../../components/Button/Button";
+import { ButtonLargeSelect, ButtonLargeSelectClinic } from "../../components/Button/Button";
 import { LargeButtonSelect } from "../../components/Button/StyleButton";
 import { CardSelecClinc } from "../../components/Cards/Cards";
 import { CardContainer } from "../../components/Cards/StyleCards";
@@ -13,7 +13,7 @@ import { CancelLessMargin } from "../../components/Descriptions/StyledDescriptio
 import { TitleSelect } from "../../components/Title/StyleTitle";
 import { NameTitle } from "../../components/Title/Title";
 
-export const SelectCLinic = () => {
+export const SelectCLinic = ({navigation}) => {
   const dataItens = [
     {
       id: "1",
@@ -77,7 +77,7 @@ export const SelectCLinic = () => {
         keyExtractor={(item) => item.id}
       />
 
-      <ButtonLargeSelect text={"Continuar"} />
+      <ButtonLargeSelectClinic onPress={() => { navigation.navigate("SelectDate") }} text={"Continuar"} />
 
       <CancelLessMargin>Cancelar</CancelLessMargin>
     </Container>
