@@ -1,19 +1,15 @@
 {
   "expo": {
-    "name": "VitalHub",
-    "slug": "VitalHub",
+    "name": "vitalHub",
+    "slug": "vitalHub",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
     "splash": {
-      "image": "./assets/SplashScreen2.png",
+      "image": "./assets/SplashScreen-2.png",
       "resizeMode": "cover",
-      "fadeOutDuration": 5000,
-      "fadeInDuration": 800,
-      "animation": "./assets/splash_animation.json" 
-
-      
+      "backgroundColor": "#ffffff"
     },
     "assetBundlePatterns": [
       "**/*"
@@ -29,9 +25,6 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    },
-    "plugins": [
-      "expo-font"
-    ]
+    }
   }
 }

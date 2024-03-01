@@ -1,39 +1,43 @@
-import { Text } from "react-native"
-import { Container } from "../../Components/Container/stylesContainer"
-import { Logo, LogoGoogle } from "../../Components/Logo/StylesLogo"
-import { ButtonTitle, ButtonTitleGoogle, Title } from "../../Components/Title/StylesTitle"
-import { Input } from "../../Components/Input/IndexInput"
-import { ContentAccount, LinkMedium } from "../../Components/Link/IndexLink"
-import { Botao, ButtonGoogle } from "../../Components/Button/StylesButton"
-import { AntDesign } from '@expo/vector-icons';
 
+import { Title } from "../../components/Title/StyleTitle"
+import { Container } from "../../components/Container/StyleContainer"
+import { Logo } from "../../components/Images/StyleImages"
+import { Input } from "../../components/Input/Input"
+import { LinkMedium } from "../../components/TextMedium/TextMedium"
+import { LinkAccount } from "../../components/Link/Link"
 
-export const Login = () => {
+import { ButtonGoogle, ButtonNormal } from "../../components/Button/Button"
+import { StatusBar } from "react-native"
+
+export const Login = ({navigation}) => {
     return (
+
         <Container>
-            <Logo source={require("../../assets/VitalHub_Logo1.png")} />
 
-            <Title>Entrar ou Criar conta</Title>
+            <StatusBar translucent backgroundColor="transparent" barStyle="dark-content" />
 
-            <Input placeholder={"Usuário ou E-mail"} placeholderTextColor={"#34898F"} />
+            <Logo source={require('../../assets/VitalHub_Logo1.png')} />
 
-            <Input placeholder={"Senha"} placeholderTextColor={"#34898F"} secureTextEntry={true} />
+            <Title>Entrar ou criar conta</Title>
 
-            <LinkMedium url={'https://i0.wp.com/www.brasilferroviario.com.br/wp-content/uploads/2020/11/MANUTENCAO.jpg?fit=878%2C536&ssl=1'} />
+            <Input
+                placeholder={"Usuário ou E-mail"}
+                placeholderTextColor={'#49B3BA'}
+            />
 
-            <Botao>
-                <ButtonTitle>Entrar</ButtonTitle>
-            </Botao>
+            <Input
+                placeholder={"Senha"}
+                placeholderTextColor={'#49B3BA'}
+                secureTextEntry={true}
+            />
 
-            <ButtonGoogle >
-            <AntDesign name="google" size={24} color="#496BBA"/>
-                <ButtonTitleGoogle >Entrar com o Google</ButtonTitleGoogle>
-            </ButtonGoogle>
+            <LinkMedium textLink={"Esqueceu sua senha ?"} onPress={() => navigation.navigate("ForgotPassword")} />
 
-            <ContentAccount url={'https://i0.wp.com/www.brasilferroviario.com.br/wp-content/uploads/2020/11/MANUTENCAO.jpg?fit=878%2C536&ssl=1'} />
+            <ButtonNormal text={"Entrar"}/>
 
+            <ButtonGoogle text={"Entrar com Google"}/>
 
-
+            <LinkAccount onPress={() => navigation.navigate("CreateAccount")}/>
 
         </Container>
     )

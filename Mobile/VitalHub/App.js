@@ -1,121 +1,153 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { NavigationContainer } from '@react-navigation/native';
-import AppLoading from 'expo-app-loading';
-import {
-  useFonts,
-  Montserrat_700Bold,
-  Quicksand_600SemiBold,
-  Quicksand_500Medium,
-  MontserratAlternates_600SemiBold,
-  MontserratAlternates_500Medium,
-  MontserratAlternates_700Bold,
-  Quicksand_400Regular,
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { StatusBar } from 'react-native';
+import { Navegacao } from './src/screens/Navegacao/Navegacao';
+import { Login } from './src/screens/Login/Login';
+import { ForgotPassword } from './src/screens/ForgotPassword/ForgotPassword';
 
-} from '@expo-google-fonts/dev';
-import { navegacao } from './src/screens/Navegacao/Navegacao';
-import { Login,} from './src/screens/Login/Login';
-import { Senha } from './src/screens/Senha/Senha';
-import { verificacao } from './src/screens/Verificacao/Verificacao';
-import { NovaSenha } from './src/screens/NovaSenha/NovaSenha';
-import { RedefinirSenha } from './src/screens/RedefinirSenha/RedefinirSenha';
-import { Perfil } from './src/screens/Perfil/PerfilPaciente';
-import { ProntuarioMedico } from './src/screens/ProntuarioMedico/ProntuarioMedico';
-import { ConsultaMedico } from './src/screens/ConsultasMedico/ConsultaMedico';
+import { useFonts, MontserratAlternates_500Medium, MontserratAlternates_600SemiBold, MontserratAlternates_700Bold } from '@expo-google-fonts/montserrat-alternates';
+import { Quicksand_500Medium, Quicksand_600SemiBold } from '@expo-google-fonts/quicksand';
 
 
+import { CheckEmail } from './src/screens/CheckEmail/ChekEmail';
+import { RedefinePassword } from './src/screens/RedefinePassword/RedefinePassword';
+import { CreateAccount } from './src/screens/CreateAccount/CreateAccount';
+import { PatientProfile } from './src/screens/PatientProfile/PatientProfile';
+import { MedicalRecords } from './src/screens/MedicalRecords/MedicalRecords';
+import { DoctorConsultation } from './src/screens/DoctorConsultation/DoctorConsultation';
+import { SelectDoctor } from './src/screens/SelectDoctor/SelectDoctor';
+import { SelectCLinic } from './src/screens/SelectClinic/SelectClinic';
+import { PatientConsultation } from './src/screens/PatientConsultation/PatientConsultation';
+import { ConsultLocalization } from './src/screens/ConsultLocalization/ConsultLocalization';
+import { ViewPrescription } from './src/screens/ViewPrescription/ViewPrescription';
+import { SelectDate } from './src/screens/SelectDate/SelectDate';
 
-const Stack = createNativeStackNavigator()
+
+const Stack = createNativeStackNavigator();
+
+
 
 export default function App() {
-  let [fontsLoaded] = useFonts({
-    Montserrat_700Bold,
-    Quicksand_600SemiBold,
-    Quicksand_500Medium,
-    MontserratAlternates_600SemiBold,
-    MontserratAlternates_500Medium,
-    MontserratAlternates_700Bold,
-    Quicksand_400Regular,
-    
 
-    
+  let [fontsLoaded, fontError] = useFonts({
+    MontserratAlternates_500Medium,
+    MontserratAlternates_600SemiBold,
+    MontserratAlternates_700Bold,
+    Quicksand_500Medium,
+    Quicksand_600SemiBold
   });
 
-  if (!fontsLoaded) {
-    return <AppLoading />;
-  } else {
-
-    return (
-
-      //container =: envolve toda a estutrura de navegacao
-      //navigator: componente para a navegacao
-      //screen: tela 
-      //name:nome da tela 
-      //component: component que sera chamado
-      //options(title): titulo da tela
-
-
-      <NavigationContainer>
-        <Stack.Navigator>
-          <Stack.Screen
-            name="Navegacao"
-            component={navegacao}
-            options={{title: "Navegacao" }}
-          />
-
-          <Stack.Screen
-            name="Login"
-            component={Login}
-            options={{title: "Login" }}
-          />
-
-          <Stack.Screen
-            name="Senha"
-            component={Senha}
-            options={{title: "Senha" }}
-          />
-
-          <Stack.Screen
-            name="Verificacao"
-            component={verificacao}
-            options={{title: "verificacao" }}
-          />
-
-          <Stack.Screen
-            name="RedefinirSenha"
-            component={RedefinirSenha}
-            options={{title: "RedefinirSenha" }}
-          />
-
-          <Stack.Screen
-            name="NovaSenha"
-            component={NovaSenha}
-            options={{title: "NovaSenha" }}
-          />
-
-          <Stack.Screen
-            name="Perfil"
-            component={Perfil}
-            options={{title: "Perfil" }}
-          />
-
-          <Stack.Screen
-            name="ProntuarioMedico"
-            component={ProntuarioMedico}
-            options={{title: "ProntuarioMedico" }}
-          />
-          <Stack.Screen
-            name="ConsultaMedico"
-            component={ConsultaMedico}
-            options={{title: "ConsultaMedico" }}
-          />
-        </Stack.Navigator>
-      </NavigationContainer>
-
-      // <StatusBar style="auto" />
-
-    );
+  if (!fontsLoaded && !fontError) {
+    return null;
   }
+  return (
+
+    //Container - envolve toda a estrutura de navegação
+    //Navigator - componente para a navegação
+    //Screen - tela
+    //name: nome da tela
+    //component: componente que será chamado
+    //options(title): título da tela
+
+    <NavigationContainer>
+
+      <StatusBar translucent backgroundColor="transparent" barStyle="light-content" />
+
+      <Stack.Navigator screenOptions={{
+        headerShown: false
+      }}   >
+
+        <Stack.Screen
+          name="Navegação"
+          component={Navegacao}
+          options={{ title: 'Navegação' }}
+        />
+
+        <Stack.Screen
+          name="Login"
+          component={Login}
+          options={{ title: 'Login' }}
+        />
+
+        <Stack.Screen
+          name="ForgotPassword"
+          component={ForgotPassword}
+          options={{ title: 'ForgotPassword' }}
+        />
+
+        <Stack.Screen
+          name="CheckEmail"
+          component={CheckEmail}
+          options={{ title: 'CheckEmail' }}
+        />
+
+        <Stack.Screen
+          name="RedefinePassword"
+          component={RedefinePassword}
+          options={{ title: 'RedefinePassword' }}
+        />
+
+        <Stack.Screen
+          name="CreateAccount"
+          component={CreateAccount}
+          options={{ title: 'CreateAccount' }}
+        />
+
+        <Stack.Screen
+          name="PatientProfile"
+          component={PatientProfile}
+          options={{ title: 'PatientProfile' }}
+        />
+
+        <Stack.Screen
+          name="MedicalRecords"
+          component={MedicalRecords}
+          options={{ title: 'MedicalRecords' }}
+        />
+
+        <Stack.Screen
+          name="DoctorConsultation"
+          component={DoctorConsultation}
+          options={{ title: 'DoctorConsultation' }}
+        />
+
+        <Stack.Screen
+          name="PatientConsultation"
+          component={PatientConsultation}
+          options={{ title: 'PatientConsultation' }}
+        />
+
+        <Stack.Screen
+          name="SelectDoctor"
+          component={SelectDoctor}
+          options={{ title: 'SelectDoctor' }}
+        />
+
+        <Stack.Screen
+          name="SelectClinic"
+          component={SelectCLinic}
+          options={{ title: 'SelectClinic' }}
+        />
+        <Stack.Screen
+          name="SelectDate"
+          component={SelectDate}
+          options={{ title: 'SelectDate' }}
+        />
+        <Stack.Screen
+          name="ConsultLocalization"
+          component={ConsultLocalization}
+          options={{ title: 'ConsultLocalization' }}
+        />
+        <Stack.Screen
+          name="ViewPrescription"
+          component={ViewPrescription}
+          options={{ title: 'ViewPrescription' }}
+        />
+
+      </Stack.Navigator>
+
+    </NavigationContainer>
+
+  );
 }
 
