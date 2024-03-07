@@ -64,7 +64,13 @@ export const LargeButtonSelect= styled(LargeButton)`
 `
 
 export const LargeButtonSelectModal = styled(LargeButtonSelect)`
+margin-top: 40px;
+`
+export const LargeButtonSelectData = styled(LargeButtonSelect)`
 margin-top: -40px;
+`
+export const LargeButtonSelectDoctor = styled(LargeButtonSelect)`
+margin-top: 170px;
 
 `
 export const LargeButtonAgendamentModal = styled(LargeButtonSelect)`

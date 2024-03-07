@@ -8,7 +8,7 @@ import { Input } from '../../components/Input/Input'
 import { Close, Logo } from '../../components/Images/StyleImages'
 import { Title } from '../../components/Title/StyleTitle'
 
-export const RedefinePassword = () => {
+export const RedefinePassword = ({navigation}) => {
 
     return (
 
@@ -35,7 +35,7 @@ export const RedefinePassword = () => {
                 secureTextEntry={true}
             />
 
-            <ButtonNormal text={"Confirmar nova senha"}/>
+            <ButtonNormal onPress={() => { navigation.navigate("Login") }} text={"Confirmar nova senha"}/>
             
         </Container>
 

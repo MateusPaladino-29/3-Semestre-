@@ -92,7 +92,7 @@ export const ViewPrescription = ({navigation}) => {
           editable={true}
         />
 
-        <CardCancelLessPrescription text={"Voltar"}/>
+        <CardCancelLessPrescription onPressCancel={() => {navigation.navigate("Main") }}   text={"Voltar"}/>
       </Container>
     </ScrollContainer>
   );

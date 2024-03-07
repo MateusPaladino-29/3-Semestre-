@@ -4,13 +4,17 @@ import { PatientProfile } from "../PatientProfile/PatientProfile";
 
 import { FontAwesome, FontAwesome5 } from "@expo/vector-icons";
 import { ContentIcon, TextIcon } from "./Style";
+import { useState } from "react";
+import { DoctorConsultation } from "../DoctorConsultation/DoctorConsultation";
 
 const BottomTab = createBottomTabNavigator();
 
 export const Main = () => {
+  const [profile, setProfile] = useState("Medico");
+
   return (
     <BottomTab.Navigator
-      initialRouteName="PatientConsultation"
+      initialRouteName="Home"
       screenOptions={({ route }) => ({
         tabBarStyle: { backgroundColor: "#FFFFFF", height: 80, paddingTop: 10 },
         tabBarActiveBackgroundColor: "transparent",
@@ -18,7 +22,7 @@ export const Main = () => {
         headerShown: false,
 
         tabBarIcon: ({ focused }) => {
-          if (route.name === "PatientConsultation") {
+          if (route.name === "Home") {
             return (
               <ContentIcon
                 tabBarActiveBackgroundColor={
@@ -29,9 +33,7 @@ export const Main = () => {
                 {focused && <TextIcon>Agenda</TextIcon>}
               </ContentIcon>
             );
-          } else 
-
-          {
+          } else {
             return (
               <ContentIcon
                 tabBarActiveBackgroundColor={
@@ -46,15 +48,13 @@ export const Main = () => {
         },
       })}
     >
-      {/* //Realizar um Ternario ?? */}
-
+  
       <BottomTab.Screen
-        name="PatientConsultation"
-        component={PatientConsultation}
+        name="Home"
+        component={ profile === "Paciente" ? PatientConsultation : DoctorConsultation}
       />
-      <BottomTab.Screen name="PatientProfile" component={PatientProfile} />
 
-      {/* // finalizar o Ternario :: */}
+      <BottomTab.Screen name="Perfil" component={  profile === "Paciente" ?  PatientProfile : DoctorConsultation} />
     </BottomTab.Navigator>
   );
 };

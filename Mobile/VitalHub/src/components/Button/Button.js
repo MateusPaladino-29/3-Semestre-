@@ -18,6 +18,8 @@ import {
   LargeButtonLocalization,
   LargeButtonSelect,
   LargeButtonSelectClinic,
+  LargeButtonSelectData,
+  LargeButtonSelectDoctor,
   LargeButtonSelectModal,
   NormalButton,
   SendButton,
@@ -58,6 +60,20 @@ export const ButtonLargeSelect = ({ onPress, text }) => {
     <LargeButtonSelectModal onPress={onPress}>
       <ButtonText>{text}</ButtonText>
     </LargeButtonSelectModal>
+  );
+};
+export const ButtonLargeSelectData = ({ onPress, text }) => {
+  return (
+    <LargeButtonSelectData onPress={onPress}>
+      <ButtonText>{text}</ButtonText>
+    </LargeButtonSelectData>
+  );
+};
+export const ButtonLargeSelectDoctor = ({ onPress, text }) => {
+  return (
+    <LargeButtonSelectDoctor onPress={onPress}>
+      <ButtonText>{text}</ButtonText>
+    </LargeButtonSelectDoctor>
   );
 };
 export const ButtonLargeLocalization = ({ onPress, text }) => {

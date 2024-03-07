@@ -2,7 +2,7 @@ import { StatusBar } from "react-native"
 import { Container } from "../../components/Container/StyleContainer"
 import { TitleSelect } from "../../components/Title/StyleTitle"
 import CalendarComponent from "../../components/CalendarComponent/CalendarComponent"
-import { ButtonLargeSelect } from "../../components/Button/Button"
+import { ButtonLargeSelect, ButtonLargeSelectClinic, ButtonLargeSelectData } from "../../components/Button/Button"
 import { CardCancelLess } from "../../components/Descriptions/Descriptions"
 import { InputSelect } from "../../components/InputSelect/InputSelect"
 import { Label, LabelSelect } from "../../components/Label/Label"
@@ -28,9 +28,9 @@ export const SelectDate = ({navigation}) => {
 
             <InputSelect />
 
-            <ButtonLargeSelect onPress={() => setShowModal(true)} text={"Confirmar"} />
+            <ButtonLargeSelectData onPress={() => setShowModal(true)} text={"Confirmar"} />
 
-            <CardCancelLess onPressCancel={() => setShowModal(false)}  text={"Cancelar"} />
+            <CardCancelLess onPress={() => setShowModal(false)}  text={"Cancelar"} />
 
             <ConfirmAppointmentModal
                 navigation={navigation}

@@ -1,3 +1,4 @@
+import { useState } from "react";
 import {
   BoxCalendar,
   BoxCard,
@@ -47,8 +48,12 @@ export const Card = ({
   onPressCancel,
   onPressAppointment,
   onPressCard,
+  navigation,
+  onPress,
 }) => {
   const Check = () => {
+const [profile, setProfile] = useState("Paciente")
+
     if (status === "a") {
       return (
         <BoxDateCancel>
@@ -71,7 +76,9 @@ export const Card = ({
           </ConsultDateGray>
 
           <SeeRecord
-            onPressAppointment={onPressAppointment}
+            // onPressAppointment={onPressAppointment}
+            onPressAppointment={profile != "Paciente" ? onPressAppointment : () => navigation.replace("ViewPrescription")}
+            // onPress={profile !== "Paciente" ? onPressAppointment : () => navigation.replace("ViewPrescription")}
             text={"Ver Prontuário"}
           />
         </BoxDateCancel>

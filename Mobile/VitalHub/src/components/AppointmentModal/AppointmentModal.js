@@ -11,6 +11,7 @@ import { CardCancelLess } from "../Descriptions/Descriptions";
 import { PatientImage } from "../Images/StyleImages";
 
 export const AppointmentModal = ({
+  navigation,
   visible,
   setShowModelAppointment,
   ...rest
@@ -26,7 +27,7 @@ export const AppointmentModal = ({
             <EmailTextApp>niccole.sarga@gmail.com</EmailTextApp>
           </ModalBox>
 
-          <ButtonLargeSelect text={"Inserir Prontuario"} />
+          <ButtonLargeSelect onPress={() => { navigation.navigate("ViewPrescription") }} text={"Ver Prontuario"} />
 
           <CardCancelLess
             onPressCancel={() => setShowModelAppointment(false)}
@@ -37,3 +38,5 @@ export const AppointmentModal = ({
     </Modal>
   );
 };
+
+//"Paciente" ? 

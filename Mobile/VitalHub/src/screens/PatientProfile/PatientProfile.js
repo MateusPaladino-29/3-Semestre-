@@ -104,11 +104,11 @@ export const PatientProfile = ({navigation}) => {
                     />
                 </ContainerCepCidade>
 
-                <ButtonLarge onPress={() => { navigation.navigate("PatientConsultation") }} text={"Salvar"} />
+                <ButtonLarge onPress={() => { navigation.navigate("Main") }} text={"Salvar"} />
 
                 <ButtonLarge text={"Editar"}/>
 
-                <BlockedSmallButton text={"Sair do app"}/>
+                <BlockedSmallButton  onPressCancel={() => navigation.replace("Main")} text={"Sair do app"}/>
 
             </Container>
 

@@ -39,7 +39,7 @@ export const CreateAccount = ({ navigation }) => {
                 secureTextEntry={true}
             />
 
-            <ButtonNormal text={"Cadastrar"} />
+            <ButtonNormal onPress={() => { navigation.navigate("Login") }} text={"Cadastrar"} />
 
             <Cancel onPress={() => { navigation.navigate("Login") }} />
 

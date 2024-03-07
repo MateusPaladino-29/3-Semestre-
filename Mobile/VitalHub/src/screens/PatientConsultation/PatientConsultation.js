@@ -109,7 +109,7 @@ export const PatientConsultation = ({ navigation }) => {
       <Header>
         <StatusBar translucent backgroundColor="transparent" />
 
-        <BoxHome>
+        <BoxHome onPress={() => {navigation.navigate("PatientProfile")}}>
           <ImagemHome source={require("../../assets/Patient.png")} />
 
           <BoxDataHome>
@@ -166,6 +166,7 @@ export const PatientConsultation = ({ navigation }) => {
             onPressAppointment={() => setShowModelAppointment(true)}
             onPressCard={() => setShowModalPatient(true)}
             navigation={navigation}
+
             
           />
         )}
@@ -195,6 +196,7 @@ export const PatientConsultation = ({ navigation }) => {
       />
 
       <PatientAppointmentModal
+        // situacao={item.situacao}
         navigation={navigation}
         visible={showModalPatient}
         setShowModalAppointment={setShowModalPatient}

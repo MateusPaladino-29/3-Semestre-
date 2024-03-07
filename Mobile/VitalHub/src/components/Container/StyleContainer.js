@@ -62,7 +62,7 @@ export const BoxDataHome = styled.SafeAreaView`
     
 `
 
-export const BoxHome = styled.SafeAreaView`
+export const BoxHome = styled.TouchableOpacity`
     width: 200px;
     height: 100%;
     flex-direction: row;
@@ -195,3 +195,9 @@ align-items: center;
 `
 
 
+export const BoxSeta = styled.TouchableOpacity`
+
+`
+export const BoxClose = styled.TouchableOpacity`
+
+`

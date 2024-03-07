@@ -56,7 +56,7 @@ export const MedicalRecords = () => {
 
                 <BlockedButton text={"Editar"}/>
 
-                <CancelButtonRecords>Cancelar</CancelButtonRecords>
+                <CancelButtonRecords onPressCancel={() => navigation.replace("Main")} >Cancelar</CancelButtonRecords>
 
             </Container>
 

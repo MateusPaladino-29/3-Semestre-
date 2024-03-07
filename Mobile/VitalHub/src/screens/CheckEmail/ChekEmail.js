@@ -1,39 +1,52 @@
-import { StatusBar } from "react-native"
-import { ButtonNormal } from "../../components/Button/Button"
-import { BoxNumeric, Container } from "../../components/Container/StyleContainer"
-import { CodeResend, EmailDescription, } from "../../components/Descriptions/Descriptions"
-import { NumericInput } from "../../components/Input/Input"
-import { Close, Logo } from "../../components/Images/StyleImages"
-import { Title } from "../../components/Title/StyleTitle"
-
+import { StatusBar } from "react-native";
+import { ButtonNormal } from "../../components/Button/Button";
+import {
+    BoxClose,
+  BoxNumeric,
+  Container,
+} from "../../components/Container/StyleContainer";
+import {
+  CodeResend,
+  EmailDescription,
+} from "../../components/Descriptions/Descriptions";
+import { NumericInput } from "../../components/Input/Input";
+import { Close, Logo } from "../../components/Images/StyleImages";
+import { Title } from "../../components/Title/StyleTitle";
 
 export const CheckEmail = ({ navigation }) => {
-    return (
+  return (
+    <Container>
+      <StatusBar
+        translucent
+        backgroundColor="transparent"
+        barStyle="dark-content"
+      />
 
-        <Container>
+      <BoxClose onPress={() => { navigation.navigate("ForgotPassword") }}>
+        <Close source={require("../../assets/x-top-screen.png")} />
+      </BoxClose>
 
-            <StatusBar translucent backgroundColor="transparent" barStyle="dark-content" />
+      <Logo source={require("../../assets/VitalHub_Logo1.png")} />
 
-            <Close source={require('../../assets/x-top-screen.png')} />
+      <Title>Verifique seu e-mail</Title>
 
-            <Logo source={require('../../assets/VitalHub_Logo1.png')} />
+      <EmailDescription />
 
-            <Title>Verifique seu e-mail</Title>
+      <BoxNumeric>
+        <NumericInput placeholder={"0"} placeholderTextColor={"#34898F"} />
+        <NumericInput placeholder={"0"} placeholderTextColor={"#34898F"} />
+        <NumericInput placeholder={"0"} placeholderTextColor={"#34898F"} />
+        <NumericInput placeholder={"0"} placeholderTextColor={"#34898F"} />
+      </BoxNumeric>
 
-            <EmailDescription />
+      <ButtonNormal
+        text={"Confirmar"}
+        onPress={() => {
+          navigation.navigate("RedefinePassword");
+        }}
+      />
 
-            <BoxNumeric>
-                <NumericInput placeholder={"0"} placeholderTextColor={"#34898F"} />
-                <NumericInput placeholder={"0"} placeholderTextColor={"#34898F"} />
-                <NumericInput placeholder={"0"} placeholderTextColor={"#34898F"} />
-                <NumericInput placeholder={"0"} placeholderTextColor={"#34898F"} />
-            </BoxNumeric>
-
-            <ButtonNormal text={"Confirmar"} onPress={() => { navigation.navigate("RedefinePassword") }} />
-
-            <CodeResend text={"Reenviar Código"} />
-
-        </Container>
-
-    )
-}
+      <CodeResend text={"Reenviar Código"} />
+    </Container>
+  );
+};

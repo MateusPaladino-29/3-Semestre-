@@ -6,7 +6,12 @@ import {
 } from "../../components/Container/StyleContainer";
 import { TitleSelect } from "../../components/Title/StyleTitle";
 import { CardSelectDoctor } from "../../components/Cards/Cards";
-import { ButtonLarge, ButtonLargeSelect } from "../../components/Button/Button";
+import {
+  ButtonLarge,
+  ButtonLargeSelect,
+  ButtonLargeSelectClinic,
+  ButtonLargeSelectDoctor,
+} from "../../components/Button/Button";
 import { CancelLessMargin } from "../../components/Descriptions/StyledDescriptions";
 import { useState } from "react";
 import { ScheduleModal } from "../../components/ScheduleModal/ScheduleModal";
@@ -16,7 +21,7 @@ import { PatientAppointmentModal } from "../../components/PatientAppointmentModa
 
 // const [showModal, setShowModal] = useState(false);
 
-export const SelectDoctor = ({navigation}) => {
+export const SelectDoctor = ({ navigation }) => {
   const image = require("../../assets/ImageCard.png");
 
   const dataItens = [
@@ -41,50 +46,43 @@ export const SelectDoctor = ({navigation}) => {
   ];
 
   return (
-    <ScrollContainer>
+    <Container>
       <StatusBar
         translucent
         backgroundColor="transparent"
         barStyle="dark-content"
       />
 
-      <Container>
-        <TitleSelect>Selecionar Médico</TitleSelect>
 
-        <FlatContainerSelect
-          data={dataItens}
-          renderItem={({ item }) => (
-            <CardSelectDoctor
-              doctorArea={item.doctorArea}
-              name={item.name}
-              url={image}
-            />
-          )}
-          keyExtractor={(item) => item.id}
-        />
-        {/* 
+      <TitleSelect>Selecionar Médico</TitleSelect>
+
+      <FlatContainerSelect
+        data={dataItens}
+        renderItem={({ item }) => (
+          <CardSelectDoctor
+            doctorArea={item.doctorArea}
+            name={item.name}
+            url={image}
+          />
+        )}
+        keyExtractor={(item) => item.id}
+      />
+      {/* 
                 <CardSelectDoctor doctorArea={'Dermatóloga, Esteticista'} url={require('../../assets/DermaImage.png')} name={'Dr Alessandra'}/>
 
                 <CardSelectDoctor doctorArea={'Cirurgião, Cardiologista'} url={require('../../assets/DermaImage.png')} name={'Dr Kumushiro'}/>
 
                 <CardSelectDoctor doctorArea={'Clínico, Pediatra'} url={require('../../assets/DermaImage.png')} name={'Dr Rodrigo Santos'}/> */}
 
-        <ButtonLargeSelect  onPress={() => { navigation.navigate("SelectDate") }} text={"Continuar"} />
+      <ButtonLargeSelectDoctor
+        onPress={() => {
+          navigation.navigate("SelectDate");
+        }}
+        text={"Continuar"}
+      />
 
-        <CancelLessMargin>Cancelar</CancelLessMargin>
+      <CancelLessMargin onPress={() => navigation.replace("Main")}>Cancelar</CancelLessMargin>
 
-        {/* <ScheduleModal visible={showModal} setShowModal={setShowModal} /> */}
-
-        <PatientAppointmentModal
-          visible={showModalAppointment}
-          setShowModalAppointment={setShowModalAppointment}
-        />
-
-        {/* <CancellationModal
-          visible={showModalCancel}
-          setShowModalCancel={setShowModalCancel}
-        /> */}
-      </Container>
-    </ScrollContainer>
+    </Container>
   );
 };
