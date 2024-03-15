@@ -1,4 +1,3 @@
-import { StatusBar } from "react-native";
 import {
   Container,
   ContainerCepCidade,
@@ -13,8 +12,8 @@ import { Title, TitleLocalization } from "../../components/Title/StyleTitle";
 export const ConsultLocalization = ({ navigation }) => {
   return (
     <Container>
-     
-      <Maps />
+      
+      <Maps/>
 
       <TitleLocalization>Clínica Natureh</TitleLocalization>
 
@@ -53,6 +52,7 @@ export const ConsultLocalization = ({ navigation }) => {
         }}
         text={"Voltar"}
       />
+      
     </Container>
   );
 };

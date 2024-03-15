@@ -4,20 +4,32 @@ import { useEffect, useState, useRef } from 'react';
 import MapView, { Marker, PROVIDER_GOOGLE } from 'react-native-maps'
 import {
   requestForegroundPermissionsAsync, //solicitar a permissão de localização
-  getCurrentPositionAsync,//Captura a localização atual
-  watchPositionAsync,
-  LocationAccuracy,
+
+  getCurrentPositionAsync, //Captura a localização atual
+
+  watchPositionAsync, //Captura em tempos a localização
+
+  LocationAccuracy //Precisão da captura
 
 } from 'expo-location'
+
+
+import { useColorScheme } from 'react-native';
+
+
 import MapViewDirections from 'react-native-maps-directions';
-import { mapsKey } from './MapsKey';
+
+
+import { mapsKey } from '../../utils/MapsKey';
 
 
 export default function Maps() {
 
+  const colorScheme = useColorScheme();
+
   const mapReference = useRef(null);
   const [initialPosition, setInitialPosition] = useState(null);
-  const[finalPosition, setFinalPosition] = useState({
+  const [finalPosition, setFinalPosition] = useState({
     latitude: -23.629205,
     longitude: -46.471853
   })
@@ -34,16 +46,15 @@ export default function Maps() {
     }
   }
 
-  async function RecarregarVizualizacaoMapa(){
-    if (mapReference.current && initialPosition) 
-    {
+  async function RecarregarVizualizacaoMapa() {
+    if (mapReference.current && initialPosition) {
       await mapReference.current.fitToCoordinates(
         [
-          {latitude: initialPosition.coords.latitude, longitude: initialPosition.coords.longitude},
-          {latitude: finalPosition.latitude, longitude: finalPosition.longitude}
+          { latitude: initialPosition.coords.latitude, longitude: initialPosition.coords.longitude },
+          { latitude: finalPosition.latitude, longitude: finalPosition.longitude }
         ],
         {
-          edgePadding: {top:60 , right: 60, bottom: 60 , left: 60},
+          edgePadding: { top: 60, right: 60, bottom: 60, left: 60 },
           animated: true
         }
       )
@@ -54,21 +65,22 @@ export default function Maps() {
 
     CapturarLocalizacao()
 
-    //Capitura em tempo real
-    watchPositionAsync({
-      accuracy : LocationAccuracy.High,
-      timeInterval : 1000,
-      distanceInterval : 1, //
-    }, async(Response) => {
-      await setInitialPosition(response)
+    // //Capturar local em tempo real
+    // watchPositionAsync({
+    //   accuracy : LocationAccuracy.High,
+    //   timeInterval : 1000,
+    //   distanceInterval : 1
+    // }, async (response) => {
 
-      //angulacao que eu vejo o ponto inicial quando eu chego perto com o zoom 
-      
-      mapReference.current?.animateCamera({
-        pitch: 60,
-        center : response.coords 
-      })
-    })
+    //   await setInitialPosition(response)
+
+    //   // ao aproximar a tela mexe na angulacao da tela, a inclinando
+
+    //   mapReference.current?.animateCamera({
+    //     pitch : 60,
+    //     center : response.coords
+    //   })
+    // })
 
   }, [100000])
 
@@ -83,7 +95,7 @@ export default function Maps() {
         initialPosition != null
           ? (
             <MapView
-            ref={mapReference}
+              ref={mapReference}
               initialRegion={{
                 latitude: initialPosition.coords.latitude,
                 longitude: initialPosition.coords.longitude,
@@ -92,7 +104,7 @@ export default function Maps() {
               }}
               provider={PROVIDER_GOOGLE}
               style={styles.map}
-              customMapStyle={grayMapStyle}
+              customMapStyle={colorScheme === 'dark' ? grayMapStyle : whiteMapStyle}
             >
 
               <Marker
@@ -102,7 +114,7 @@ export default function Maps() {
                 }}
                 title='Exemplo de  outro local'
                 description='Qualquer lugar no meu mapa'
-                pinColor='#FF1493'
+                pinColor='#77CACF'
               />
 
               <MapViewDirections
@@ -115,7 +127,7 @@ export default function Maps() {
                 }}
                 apikey={mapsKey}
                 strokeWidth={5}
-                strokeColor='#00FFFF'
+                strokeColor='#49B3BA'
               />
 
               <Marker
@@ -125,14 +137,14 @@ export default function Maps() {
                 }}
                 title='Exemplo de  outro local'
                 description='Qualquer lugar no meu mapa'
-                pinColor='#00FF00'
+                pinColor='hotpink'
               />
 
             </MapView>
           ) : (
 
             <>
-              <Text>Localização não encontrada ! </Text>
+              <Text>Carregando localização ! </Text>
 
               <ActivityIndicator />
 
@@ -150,22 +162,21 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
-    width: '100%',
+    width: '100%'
   },
 
   map: {
     flex: 1,
     width: '100%'
   },
-
 });
 
-const grayMapStyle = [
+const whiteMapStyle = [
   {
     elementType: "geometry",
     stylers: [
       {
-        color: "#E1E0E7",
+        color: "#f5f5f5",
       },
     ],
   },
@@ -288,7 +299,7 @@ const grayMapStyle = [
     elementType: "labels.text.stroke",
     stylers: [
       {
-        color: "#1B1B1B",
+        color: "#8D8D8D",
       },
     ],
   },
@@ -382,526 +393,244 @@ const grayMapStyle = [
     ],
   },]
 
+  const grayMapStyle = [
+    {
+      elementType: "geometry",
+      stylers: [
+        {
+          color: "#E1E0E7",
+        },
+      ],
+    },
+    {
+      elementType: "geometry.fill",
+      stylers: [
+        {
+          saturation: -5,
+        },
+        {
+          lightness: -5,
+        },
+      ],
+    },
+    {
+      elementType: "labels.icon",
+      stylers: [
+        {
+          visibility: "on",
+        },
+      ],
+    },
+    {
+      elementType: "labels.text.fill",
+      stylers: [
+        {
+          color: "#FBFBFB",
+        },
+      ],
+    },
+    {
+      elementType: "labels.text.stroke",
+      stylers: [
+        {
+          color: "#33303E",
+        },
+      ],
+    },
+    {
+      featureType: "administrative",
+      elementType: "geometry",
+      stylers: [
+        {
+          color: "#fbfbfb",
+        },
+      ],
+    },
+    {
+      featureType: "administrative.country",
+      elementType: "labels.text.fill",
+      stylers: [
+        {
+          color: "#fbfbfb",
+        },
+      ],
+    },
+    {
+      featureType: "administrative.land_parcel",
+      stylers: [
+        {
+          visibility: "on",
+        },
+      ],
+    },
+    {
+      featureType: "administrative.locality",
+      elementType: "labels.text.fill",
+      stylers: [
+        {
+          color: "#fbfbfb",
+        },
+      ],
+    },
+    {
+      featureType: "poi",
+      elementType: "labels.text.fill",
+      stylers: [
+        {
+          color: "#fbfbfb",
+        },
+      ],
+    },
+    {
+      featureType: "poi.business",
+      stylers: [
+        {
+          visibility: "on",
+        },
+      ],
+    },
+    {
+      featureType: "poi.park",
+      elementType: "geometry",
+      stylers: [
+        {
+          color: "#66DA9F",
+        },
+      ],
+    },
+    {
+      featureType: "poi.park",
+      elementType: "labels.text",
+      stylers: [
+        {
+          visibility: "on",
+        },
+      ],
+    },
+    {
+      featureType: "poi.park",
+      elementType: "labels.text.fill",
+      stylers: [
+        {
+          color: "#fbfbfb",
+        },
+      ],
+    },
+    {
+      featureType: "poi.park",
+      elementType: "labels.text.stroke",
+      stylers: [
+        {
+          color: "#1B1B1B",
+        },
+      ],
+    },
+    {
+      featureType: "road",
+      stylers: [
+        {
+          visibility: "on",
+        },
+      ],
+    },
+    {
+      featureType: "road",
+      elementType: "geometry.fill",
+      stylers: [
+        {
+          color: "#C6C5CE",
+        },
+      ],
+    },
+    {
+      featureType: "road",
+      elementType: "labels.text.fill",
+      stylers: [
+        {
+          color: "#FBFBFB",
+        },
+      ],
+    },
+    {
+      featureType: "road.arterial",
+      elementType: "geometry",
+      stylers: [
+        {
+          color: "#ACABB7",
+        },
+      ],
+    },
+    {
+      featureType: "road.highway",
+      elementType: "geometry",
+      stylers: [
+        {
+          color: "#8C8A97",
+        },
+      ],
+    },
+    {
+      featureType: "road.highway.controlled_access",
+      elementType: "geometry",
+      stylers: [
+        {
+          color: "#8C8A97",
+        },
+      ],
+    },
+    {
+      featureType: "road.local",
+      elementType: "labels.text.fill",
+      stylers: [
+        {
+          color: "#fbfbfb",
+        },
+      ],
+    },
+    {
+      featureType: "transit",
+      elementType: "labels.text.fill",
+      stylers: [
+        {
+          color: "#fbfbfb",
+        },
+      ],
+    },
+    {
+      featureType: "water",
+      elementType: "geometry",
+      stylers: [
+        {
+          color: "#8EA5D9",
+        },
+      ],
+    },
+    {
+      featureType: "water",
+      elementType: "labels.text.fill",
+      stylers: [
+        {
+          color: "#fbfbfb",
+        },
+      ],
+    },]
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// import { StatusBar } from "expo-status-bar";
-// import { ActivityIndicator, StyleSheet, Text, View } from "react-native";
-
-// import MapView, { Marker, PROVIDER_GOOGLE } from "react-native-maps";
-
-// import {
-//   requestForegroundPermissionsAsync,
-//   getCurrentPositionAsync,
-// } from "expo-location";
-
-// import MapViewDirections from "react-native-maps-directions";
-
-// import { useEffect, useState } from "react";
-
-// import { mapskey } from "./utils/mapsKey";
-
-// export default function App() {
-//   const [initialPosition, setInitialPosition] = useState(null);
-//   const [finalPosition, setPosition] = useState({
-//     latitude: -23.564381,
-//     longitude: -46.652458,
-//   })
-
-
-
-//   async function captureLocation() {
-//     const { granted } = await requestForegroundPermissionsAsync();
-
-//     if (granted) {
-//       const currentPosition = await getCurrentPositionAsync();
-
-//       setInitialPosition(currentPosition);
-//     }
-//   }
-
-//   async function RecarregarVisualizarMapa(params) {
-//     if (mapReference.current && initialPosition) {
-//       await mapReference.current.fitToCoordinates(
-//         [
-//           { latitude: initialPosition.coords.latitude,  longitude: initialPosition.coords.longitude },
-//           {latitude: finalPosition.latitude, longitude: finalPosition.longitude}
-//         ],
-
-//         {
-//           edgePadding : {top: 60, rigth: 60, bottom:60, left:60}
-//         }
-//       )
-//     }
-//   }
-
-//   useEffect(() => {
-//     captureLocation();
-//   }, []);
-
-//   useEffect(() => {
-//     captureLocation();
-//   }, [initialPosition]);
-
-//   if (!initialPosition) {
-//     return (
-//       <View style={styles.loadingContainer}>
-//         <Text>Carregando...</Text>
-//         <ActivityIndicator size="large" color="#0000ff" />
-//       </View>
-//     );
-//   }
-
-//   const origin = {
-//     latitude: initialPosition.coords.latitude,
-//     longitude: initialPosition.coords.longitude,
-//   };
-//   const destination = {
-//     latitude: -23.564381,
-//     longitude: -46.652458,
-//   };
-
-//   const midpoint = {
-//     latitude: (origin.latitude + destination.latitude) / 2,
-//     longitude: (origin.longitude + destination.longitude) / 2,
-//   };
-
-//   return (
-//     <View style={styles.container}>
-//       <MapView
-//         style={styles.map}
-//         provider={PROVIDER_GOOGLE}
-//         initialRegion={{
-//           latitude: midpoint.latitude,
-//           longitude: midpoint.longitude,
-//           latitudeDelta: Math.abs(origin.latitude - destination.latitude) * 2,
-//           longitudeDelta:
-//             Math.abs(origin.longitude - destination.longitude) * 2,
-//         }}
-//       >
-//         <MapViewDirections
-//           origin={origin}
-//           destination={destination}
-//           apikey={mapskey}
-//           strokeColor="blue"
-//           strokeWidth={3}
-//           timePrecision="now"
-//           optimizeWaypoints={true}
-//         />
-//         {/* Criando um marcador no mapa */}
-//         <Marker
-//           coordinate={{
-//             latitude: -23.564381,
-//             longitude: -46.652458,
-//           }}
-//           title="FIAP - Paulista"
-//           description="Localização aproximada"
-//         />
-//         <Marker
-//           coordinate={{
-//             latitude: -23.562951,
-//             longitude: -46.654699,
-//           }}
-//           title="Metro - Trianon Masp"
-//           description="Localização aproximada"
-//         />
-//         <Marker
-//           coordinate={origin}
-//           title="Você"
-//           description="Localização aproximada"
-//         />
-//       </MapView>
-//     </View>
-//   );
-// }
-
-// const styles = StyleSheet.create({
-//   container: {
-//     flex: 1,
-//     backgroundColor: "#fff",
-//     alignItems: "center",
-//     justifyContent: "center",
-//   },
-//   map: {
-//     flex: 1,
-//     width: "100%",
-//   },
-//   loadingContainer: {
-//     ...StyleSheet.absoluteFillObject,
-//     alignItems: "center",
-//     justifyContent: "center",
-//   },
-
-// });
-
-// const grayMapStyle = [
+// const mapStyleDark = [
 //   {
-//     elementType: "geometry",
+//     elementType: 'geometry',
 //     stylers: [
 //       {
-//         color: "#E1E0E7",
+//         color: '#212121',
 //       },
 //     ],
 //   },
 //   {
-//     elementType: "geometry.fill",
+//     elementType: 'labels.icon',
 //     stylers: [
 //       {
-//         saturation: -5,
-//       },
-//       {
-//         lightness: -5,
+//         visibility: 'off',
 //       },
 //     ],
 //   },
-//   {
-//     elementType: "labels.icon",
-//     stylers: [
-//       {
-//         visibility: "on",
-//       },
-//     ],
-//   },
-//   {
-//     elementType: "labels.text.fill",
-//     stylers: [
-//       {
-//         color: "#FBFBFB",
-//       },
-//     ],
-//   },
-//   {
-//     elementType: "labels.text.stroke",
-//     stylers: [
-//       {
-//         color: "#33303E",
-//       },
-//     ],
-//   },
-//   {
-//     featureType: "administrative",
-//     elementType: "geometry",
-//     stylers: [
-//       {
-//         color: "#fbfbfb",
-//       },
-//     ],
-//   },
-//   {
-//     featureType: "administrative.country",
-//     elementType: "labels.text.fill",
-//     stylers: [
-//       {
-//         color: "#fbfbfb",
-//       },
-//     ],
-//   },
-//   {
-//     featureType: "administrative.land_parcel",
-//     stylers: [
-//       {
-//         visibility: "on",
-//       },
-//     ],
-//   },
-//   {
-//     featureType: "administrative.locality",
-//     elementType: "labels.text.fill",
-//     stylers: [
-//       {
-//         color: "#fbfbfb",
-//       },
-//     ],
-//   },
-//   {
-//     featureType: "poi",
-//     elementType: "labels.text.fill",
-//     stylers: [
-//       {
-//         color: "#fbfbfb",
-//       },
-//     ],
-//   },
-//   {
-//     featureType: "poi.business",
-//     stylers: [
-//       {
-//         visibility: "on",
-//       },
-//     ],
-//   },
-//   {
-//     featureType: "poi.park",
-//     elementType: "geometry",
-//     stylers: [
-//       {
-//         color: "#66DA9F",
-//       },
-//     ],
-//   },
-//   {
-//     featureType: "poi.park",
-//     elementType: "labels.text",
-//     stylers: [
-//       {
-//         visibility: "on",
-//       },
-//     ],
-//   },
-//   {
-//     featureType: "poi.park",
-//     elementType: "labels.text.fill",
-//     stylers: [
-//       {
-//         color: "#fbfbfb",
-//       },
-//     ],
-//   },
-//   {
-//     featureType: "poi.park",
-//     elementType: "labels.text.stroke",
-//     stylers: [
-//       {
-//         color: "#1B1B1B",
-//       },
-//     ],
-//   },
-//   {
-//     featureType: "road",
-//     stylers: [
-//       {
-//         visibility: "on",
-//       },
-//     ],
-//   },
-//   {
-//     featureType: "road",
-//     elementType: "geometry.fill",
-//     stylers: [
-//       {
-//         color: "#C6C5CE",
-//       },
-//     ],
-//   },
-//   {
-//     featureType: "road",
-//     elementType: "labels.text.fill",
-//     stylers: [
-//       {
-//         color: "#FBFBFB",
-//       },
-//     ],
-//   },
-//   {
-//     featureType: "road.arterial",
-//     elementType: "geometry",
-//     stylers: [
-//       {
-//         color: "#ACABB7",
-//       },
-//     ],
-//   },
-//   {
-//     featureType: "road.highway",
-//     elementType: "geometry",
-//     stylers: [
-//       {
-//         color: "#8C8A97",
-//       },
-//     ],
-//   },
-//   {
-//     featureType: "road.highway.controlled_access",
-//     elementType: "geometry",
-//     stylers: [
-//       {
-//         color: "#8C8A97",
-//       },
-//     ],
-//   },
-//   {
-//     featureType: "road.local",
-//     elementType: "labels.text.fill",
-//     stylers: [
-//       {
-//         color: "#fbfbfb",
-//       },
-//     ],
-//   },
-//   {
-//     featureType: "transit",
-//     elementType: "labels.text.fill",
-//     stylers: [
-//       {
-//         color: "#fbfbfb",
-//       },
-//     ],
-//   },
-//   {
-//     featureType: "water",
-//     elementType: "geometry",
-//     stylers: [
-//       {
-//         color: "#8EA5D9",
-//       },
-//     ],
-//   },
-//   {
-//     featureType: "water",
-//     elementType: "labels.text.fill",
-//     stylers: [
-//       {
-//         color: "#fbfbfb",
-//       },
-//     ],
-//   },
+//   // Adicione mais estilos para o modo escuro conforme necessário
 // ];
-
-
-// import { StatusBar } from "expo-status-bar";
-// import { ActivityIndicator, StyleSheet, Text, View } from "react-native";
-
-// import MapView, { Marker, PROVIDER_GOOGLE } from "react-native-maps";
-
-// import {
-//   requestForegroundPermissionsAsync,
-//   getCurrentPositionAsync,
-// } from "expo-location";
-
-// import MapViewDirections from "react-native-maps-directions";
-
-// import { useEffect, useState } from "react";
-// import { mapskey } from "./utils/mapsKey";
-
-// export default function App() {
-//   const [initialPosition, setInitialPosition] = useState(null);
-
-//   async function captureLocation() {
-//     const { granted } = await requestForegroundPermissionsAsync();
-
-//     if (granted) {
-//       const currentPosition = await getCurrentPositionAsync();
-
-//       setInitialPosition(currentPosition);
-//     }
-//   }
-
-//   useEffect(() => {
-//     captureLocation();
-//   }, []);
-
-//   if (!initialPosition) {
-//     return (
-//       <View style={styles.loadingContainer}>
-//         <Text>Carregando...</Text>
-//         <ActivityIndicator size="large" color="#0000ff" />
-//       </View>
-//     );
-//   }
-
-//   const origin = {
-//     latitude: initialPosition.coords.latitude,
-//     longitude: initialPosition.coords.longitude,
-//   };
-//   const destination = {
-//     latitude: -23.564381,
-//     longitude: -46.652458,
-//   };
-
-//   const midpoint = {
-//     latitude: (origin.latitude + destination.latitude) / 2,
-//     longitude: (origin.longitude + destination.longitude) / 2,
-//   };
-
-//   return (
-//     <View style={styles.container}>
-//       <MapView
-//         style={styles.map}
-//         provider={PROVIDER_GOOGLE}
-//         initialRegion={{
-//           latitude: midpoint.latitude,
-//           longitude: midpoint.longitude,
-//           latitudeDelta: Math.abs(origin.latitude - destination.latitude) * 2,
-//           longitudeDelta:
-//             Math.abs(origin.longitude - destination.longitude) * 2,
-//         }}
-//       >
-//         <MapViewDirections
-//           origin={origin}
-//           destination={destination}
-//           apikey={mapskey}
-//           strokeColor="blue"
-//           strokeWidth={3}
-//           timePrecision="now"
-//           optimizeWaypoints={true}
-//         />
-//         {/* Criando um marcador no mapa */}
-//         <Marker
-//           coordinate={{
-//             latitude: -23.564381,
-//             longitude: -46.652458,
-//           }}
-//           title="FIAP - Paulista"
-//           description="Localização aproximada"
-//         />
-//         <Marker
-//           coordinate={{
-//             latitude: -23.562951,
-//             longitude: -46.654699,
-//           }}
-//           title="Metro - Trianon Masp"
-//           description="Localização aproximada"
-//         />
-//         <Marker
-//           coordinate={origin}
-//           title="Você"
-//           description="Localização aproximada"
-//         />
-//       </MapView>
-//     </View>
-//   );
-// }
-
-// const styles = StyleSheet.create({
-//   container: {
-//     flex: 1,
-//     backgroundColor: "#fff",
-//     alignItems: "center",
-//     justifyContent: "center",
-//   },
-//   map: {
-//     flex: 1,
-//     width: "100%",
-//   },
-//   loadingContainer: {
-//     ...StyleSheet.absoluteFillObject,
-//     alignItems: "center",
-//     justifyContent: "center",
-//   },
-// });
