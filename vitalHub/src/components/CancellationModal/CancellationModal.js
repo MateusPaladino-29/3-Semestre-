@@ -4,6 +4,7 @@ import { DescriptionCancel } from "../Descriptions/StyledDescriptions"
 import { ButtonLargeSelect } from "../Button/Button"
 import { CardCancelLess } from "../Descriptions/Descriptions"
 import { ModalContent, PatientModal } from "./StyleCancelationModal"
+import { handleCallNotification } from "../Notifications/Notifications"
 
 export const CancellationModal = ({ 
     visible,
@@ -28,7 +29,7 @@ export const CancellationModal = ({
 
                         <DescriptionCancel>Ao cancelar essa consulta, abrirá uma possível disponibilidade no seu horário, deseja mesmo cancelar essa consulta?</DescriptionCancel>
 
-                        <ButtonLargeSelect onPress={''} text={"Continuar"}/>
+                        <ButtonLargeSelect onPress={() => {setShowModalCancel(false), handleCallNotification({title: "Consulta Cancelada", body: "Consulta cancelada com sucesso"}) }} text={"Continuar"}/>
 
                         <CardCancelLess onPressCancel={() => setShowModalCancel(false)} text={"Cancelar"}/>
 
